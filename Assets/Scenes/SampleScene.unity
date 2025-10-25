@@ -959,7 +959,7 @@ MonoBehaviour:
   target: {fileID: 911044325}
   smoothSpeed: 5
   minX: -6.9
-  maxX: 5.5
+  maxX: 5.9
   minY: -2
   maxY: 5
 --- !u!1 &619394800
