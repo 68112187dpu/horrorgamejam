@@ -18,14 +18,16 @@ public class NewBehaviourScript : MonoBehaviour
     void Update()
     {
         Vector3 playerWorldPosition = transform.position;
-        float moveHorizontal = Input.GetAxis("Horizontal");
-
         float xPosition = playerWorldPosition.x;
-        Vector2 movement = new Vector2(moveHorizontal,0f);
+        //เชคตำแหน่ง Player
 
-     
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        Vector2 movement = new Vector2(moveHorizontal, 0f);
         rb.velocity = movement * speed;
-        if (xPosition >-7.0)
+        //สำหรับ Player ขยับได้
+
+        if (xPosition >-6.0)
             Text.SetActive(false);
+        //ไว้ปิด Text ถ้าเดินออกมาเกินต่ำแหน่ง
     }
 }
