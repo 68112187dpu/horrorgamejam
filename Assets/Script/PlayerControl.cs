@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Logic : MonoBehaviour
 {
@@ -13,10 +14,12 @@ public class Logic : MonoBehaviour
     bool firstcross=false;
     public GameObject Guide;
     public TextMeshPro textMeshPro;
-        // Start is called before the first frame update
+    public static bool passed_3;
+
+    // Start is called before the first frame update
     void Start()
     {
-    
+        passed_3 = false;
     }
 
     // Update is called once per frame
@@ -30,16 +33,17 @@ public class Logic : MonoBehaviour
         Vector2 movement = new Vector2(moveHorizontal, 0f);
         rb.velocity = movement * speed;
         //Player movement
-        if (xPosition > -2.0 && LeftCross == true && Input.GetKeyDown(KeyCode.E))
+        if (LeftCross == true && Input.GetKeyDown(KeyCode.E))
         {
-            player.transform.position = new Vector2(3.42f, -3.43f);
+            player.transform.position = new Vector2(xPosition+3f, -3.43f);
             firstcross= true;
         }
-        if (xPosition < 3.5 && RightCross == true && Input.GetKeyDown(KeyCode.E))
+        if (RightCross == true && Input.GetKeyDown(KeyCode.E))
         {
-            player.transform.position = new Vector2(-0.11f, -3.43f);
+            player.transform.position = new Vector2(xPosition-3f, -3.43f);
         }
         //Cross Logic
+       
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -53,6 +57,7 @@ public class Logic : MonoBehaviour
                 Guide.SetActive(true);
                 textMeshPro.text = "E";
             }
+            //not text after first cross
         }
         if (collision.gameObject.CompareTag("QTE2"))
         {
@@ -63,6 +68,7 @@ public class Logic : MonoBehaviour
         {
             Guide.SetActive(false);
         }
+        
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -76,5 +82,6 @@ public class Logic : MonoBehaviour
         {
             RightCross = false;
         }
+       
     }
 }

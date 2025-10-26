@@ -10,6 +10,8 @@ TagManager:
   - Text
   - Quest
   - Bag
+  - WarpRight
+  - WarpLeft
   layers:
   - Default
   - TransparentFX

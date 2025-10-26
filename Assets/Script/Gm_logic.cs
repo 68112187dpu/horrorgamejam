@@ -7,6 +7,7 @@ public class Gm_logic : MonoBehaviour
     public float speed = 5.0f;
     Rigidbody2D rb;
     public GameObject gm;
+    public GameObject cleargm;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,7 @@ public class Gm_logic : MonoBehaviour
         if (collision.gameObject.CompareTag ("Finish"))
         {
             gm.SetActive(false);
+            Logic.passed_3=true;
         }
     }
 }

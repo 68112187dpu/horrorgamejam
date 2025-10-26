@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NewBehaviourScript : MonoBehaviour
 {
@@ -16,12 +17,15 @@ public class NewBehaviourScript : MonoBehaviour
     public GameObject show_bag;
     public GameObject grandma;
     public GameObject happy_gm;
+    public GameObject Trash;
+    bool warpleft = false;
 
     // Start is called before the first frame update
     void Start()
     {
         show_bag.SetActive(false);
-        happy_gm.SetActive(false); 
+        happy_gm.SetActive(false);
+        gm_quest.SetActive(false);
     }
     void bag_show()
     {
@@ -43,10 +47,17 @@ public class NewBehaviourScript : MonoBehaviour
             show_bag.SetActive(false);
             bag=false;
             grandma.SetActive(false);
-            happy_gm.SetActive(true) ;
+            happy_gm.SetActive(true);
+            Trash.SetActive(false);
         }
-
         //finish quest bag
+        if (warpleft == true && Input.GetKeyDown(KeyCode.E))
+        {
+            SceneManager.LoadScene("2_Temple");
+        }
+        //warp Logic
+
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -61,6 +72,11 @@ public class NewBehaviourScript : MonoBehaviour
         {
             bag_zone=true;
         }
+        if (collision.gameObject.CompareTag("WarpLeft"))
+        {
+            warpleft = true;
+        }
+
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -74,8 +90,14 @@ public class NewBehaviourScript : MonoBehaviour
         {
             bag_zone = false;
         }
+        if (collision.gameObject.CompareTag("WarpLeft"))
+        {
+            warpleft = false;
+        }
+
 
     }
+    // Zone check
 }
     
    
