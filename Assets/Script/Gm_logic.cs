@@ -8,6 +8,7 @@ public class Gm_logic : MonoBehaviour
     Rigidbody2D rb;
     public GameObject gm;
     public GameObject cleargm;
+    public GameObject cleartrash;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,7 @@ public class Gm_logic : MonoBehaviour
         if (collision.gameObject.CompareTag ("Finish"))
         {
             gm.SetActive(false);
+            cleartrash.SetActive(false);
             Logic.passed_3=true;
         }
     }

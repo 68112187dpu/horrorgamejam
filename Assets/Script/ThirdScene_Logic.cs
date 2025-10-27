@@ -18,12 +18,14 @@ public class NewBehaviourScript : MonoBehaviour
     public GameObject grandma;
     public GameObject happy_gm;
     public GameObject Trash;
-    bool vil_tem = false;
-    bool vil_gra = false;
     public GameObject player;
     public static bool Temple = false;
     public static bool Village = true;
     public static bool Grave = false;
+    bool vil_tem = false;
+    bool vil_gra = false;
+    bool tem_vil = false;
+    public GameObject LoadScene;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +33,7 @@ public class NewBehaviourScript : MonoBehaviour
         show_bag.SetActive(false);
         happy_gm.SetActive(false);
         gm_quest.SetActive(false);
+        LoadScene.SetActive(false);
     }
     void bag_show()
     {
@@ -53,16 +56,27 @@ public class NewBehaviourScript : MonoBehaviour
             bag=false;
             grandma.SetActive(false);
             happy_gm.SetActive(true);
-            Trash.SetActive(false);
         }
         //finish quest bag
         if (vil_tem == true && Input.GetKeyDown(KeyCode.E))
         {
+            LoadScene.SetActive(true);
             player.transform.position = new Vector2(-28f, -3.43f);
+            Temple = true;
+            Village = false;
+            StartCoroutine(LoadVil_Tem());
+        }
+        if (tem_vil == true && Input.GetKeyDown(KeyCode.E))
+        {
+            LoadScene.SetActive(true);
+            player.transform.position = new Vector2(-10f, -3.43f);
+            Temple = false;
+            Village = true;
+            StartCoroutine(LoadTem_Vil());
         }
         //warp Logic
 
-        
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -80,12 +94,15 @@ public class NewBehaviourScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Vil_Tem"))
         {
             vil_tem = true;
-            Temple=true;
-            Village=false;
+           
         }
         if (collision.gameObject.CompareTag("Vil_Gra"))
         {
             vil_gra = true;
+        }
+        if (collision.gameObject.CompareTag("Tem_Vil"))
+        {
+            tem_vil = true;
         }
 
     }
@@ -109,10 +126,27 @@ public class NewBehaviourScript : MonoBehaviour
         {
             vil_gra = false;
         }
+        if (collision.gameObject.CompareTag("Tem_Vil"))
+        {
+            tem_vil = false;
+        }
 
 
     }
     // Zone check
+    IEnumerator LoadVil_Tem()
+    {
+        yield return new WaitForSeconds(2);
+        
+        LoadScene.SetActive(false);
+    }
+    IEnumerator LoadTem_Vil()
+    {
+        yield return new WaitForSeconds(2);
+    
+        LoadScene.SetActive(false);
+    }
+    //Warp wait
 }
     
    

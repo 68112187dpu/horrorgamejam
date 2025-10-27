@@ -28,8 +28,8 @@ public class SmoothCameraFollow2D : MonoBehaviour
         }
         else if (NewBehaviourScript.Temple == true)
         {
-            minX = -30;
-            maxX = -23;
+            minX = -50;
+            maxX = -32;
             minY = -2;
             maxY = 5;
         }
