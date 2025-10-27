@@ -8,6 +8,7 @@ public class SmoothCameraFollow2D : MonoBehaviour
     public Transform target;
     public float smoothSpeed = 5f;
     private readonly Vector3 offset = new Vector3(0f, 0f, -10f);
+    public GameObject player;
 
     // Define the boundaries where the camera must stop
     [Header("Boundary Limits")]
@@ -18,6 +19,23 @@ public class SmoothCameraFollow2D : MonoBehaviour
 
     void LateUpdate()
     {
+        if (NewBehaviourScript.Village == true)
+        {
+            minX = -6.9f;
+            maxX = 23.5f;
+            minY =-2;
+            maxY =5;
+        }
+        else if (NewBehaviourScript.Temple == true)
+        {
+            minX = -30;
+            maxX = -23;
+            minY = -2;
+            maxY = 5;
+        }
+
+
+
         if (target == null) return;
 
         // 1. Calculate the raw desired position based on the player

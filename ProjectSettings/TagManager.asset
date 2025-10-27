@@ -12,6 +12,9 @@ TagManager:
   - Bag
   - WarpRight
   - WarpLeft
+  - WarpGrave
+  - WarpTemple
+  - Tem_Vil
   layers:
   - Default
   - TransparentFX

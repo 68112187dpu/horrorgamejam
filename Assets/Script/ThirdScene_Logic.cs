@@ -18,7 +18,12 @@ public class NewBehaviourScript : MonoBehaviour
     public GameObject grandma;
     public GameObject happy_gm;
     public GameObject Trash;
-    bool warpleft = false;
+    bool vil_tem = false;
+    bool vil_gra = false;
+    public GameObject player;
+    public static bool Temple = false;
+    public static bool Village = true;
+    public static bool Grave = false;
 
     // Start is called before the first frame update
     void Start()
@@ -51,9 +56,9 @@ public class NewBehaviourScript : MonoBehaviour
             Trash.SetActive(false);
         }
         //finish quest bag
-        if (warpleft == true && Input.GetKeyDown(KeyCode.E))
+        if (vil_tem == true && Input.GetKeyDown(KeyCode.E))
         {
-            SceneManager.LoadScene("2_Temple");
+            player.transform.position = new Vector2(-28f, -3.43f);
         }
         //warp Logic
 
@@ -72,9 +77,15 @@ public class NewBehaviourScript : MonoBehaviour
         {
             bag_zone=true;
         }
-        if (collision.gameObject.CompareTag("WarpLeft"))
+        if (collision.gameObject.CompareTag("Vil_Tem"))
         {
-            warpleft = true;
+            vil_tem = true;
+            Temple=true;
+            Village=false;
+        }
+        if (collision.gameObject.CompareTag("Vil_Gra"))
+        {
+            vil_gra = true;
         }
 
     }
@@ -86,13 +97,13 @@ public class NewBehaviourScript : MonoBehaviour
             gm_quest.SetActive(false);
             gm_zone = false;
         }
-        if (collision.gameObject.CompareTag("Bag"))
+        if (collision.gameObject.CompareTag("Vil_Tem"))
         {
-            bag_zone = false;
+            vil_tem = false;
         }
-        if (collision.gameObject.CompareTag("WarpLeft"))
+        if (collision.gameObject.CompareTag("Vil_Gra"))
         {
-            warpleft = false;
+            vil_gra = false;
         }
 
 
