@@ -20,20 +20,29 @@ public class NewBehaviourScript : MonoBehaviour
     public GameObject Trash;
     public GameObject player;
     public static bool Temple = false;
-    public static bool Village = true;
+    public static bool Village = false;
     public static bool Grave = false;
+    public static bool Final = false;
+    public static bool House = false;
+    public static bool Village_2 = false;
+    public static bool Entrace = true;
     bool vil_tem = false;
     bool vil_gra = false;
     bool tem_vil = false;
     bool gra_vil = false;
+    bool ent_tem = false;
+    bool tem_ent = false;
     public GameObject LoadScene;
     public static bool Traveling=false;
     public GameObject Light;
     public GameObject Flashlight;
+    public static bool slow=false;
 
     // Start is called before the first frame update
     void Start()
     {
+        Traveling = false;
+        Entrace = true;
         show_bag.SetActive(false);
         happy_gm.SetActive(false);
         gm_quest.SetActive(false);
@@ -62,6 +71,7 @@ public class NewBehaviourScript : MonoBehaviour
         {
             bag_show();
             bag_object.SetActive(false);
+            slow=true;
         }
         //get the bag
         if (gm_zone==true&&bag==true&&quest_check==true && Input.GetKeyDown(KeyCode.E))
@@ -70,13 +80,14 @@ public class NewBehaviourScript : MonoBehaviour
             bag=false;
             grandma.SetActive(false);
             happy_gm.SetActive(true);
+            slow=false;
         }
         //finish quest bag
         if (vil_tem == true && Input.GetKeyDown(KeyCode.E))
         {
             Traveling = true;
             LoadScene.SetActive(true);
-            player.transform.position = new Vector2(-28f, -3.43f);
+            player.transform.position = new Vector2(-28f, -6.32f);
             Temple = true;
             Village = false;
             StartCoroutine(Loading());
@@ -85,7 +96,7 @@ public class NewBehaviourScript : MonoBehaviour
         {
             Traveling = true;
             LoadScene.SetActive(true);
-            player.transform.position = new Vector2(-10f, -3.43f);
+            player.transform.position = new Vector2(-10f, -6.32f);
             Temple = false;
             Village = true;
             StartCoroutine(Loading());
@@ -106,6 +117,24 @@ public class NewBehaviourScript : MonoBehaviour
             player.transform.position = new Vector2(27f, -3.43f);
             Village = true;
             Grave = false;
+            StartCoroutine(Loading());
+        }
+        if (ent_tem == true && Input.GetKeyDown(KeyCode.E))
+        {
+            Traveling = true;
+            LoadScene.SetActive(true);
+            player.transform.position = new Vector2(-75, -6.32f);
+            Temple = true;
+            Entrace = false;
+            StartCoroutine(Loading());
+        }
+        if (tem_ent == true && Input.GetKeyDown(KeyCode.E))
+        {
+            Traveling = true;
+            LoadScene.SetActive(true);
+            player.transform.position = new Vector2(-96, -6.32f);
+            Temple = false;
+            Entrace = true;
             StartCoroutine(Loading());
         }
         //warp Logic
@@ -142,6 +171,14 @@ public class NewBehaviourScript : MonoBehaviour
         {
             gra_vil = true;
         }
+        if (collision.gameObject.CompareTag("Ent_Tem"))
+        {
+            ent_tem = true;
+        }
+        if (collision.gameObject.CompareTag("Tem_Ent"))
+        {
+            tem_ent = true;
+        }
 
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -172,13 +209,21 @@ public class NewBehaviourScript : MonoBehaviour
         {
             gra_vil = false;
         }
+        if (collision.gameObject.CompareTag("Ent_Tem"))
+        {
+            ent_tem = false;
+        }
+        if (collision.gameObject.CompareTag("Tem_Ent"))
+        {
+            tem_ent = false;
+        }
 
 
     }
     // Zone check
     IEnumerator Loading()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.5f);
         
         LoadScene.SetActive(false);
         Traveling=false;

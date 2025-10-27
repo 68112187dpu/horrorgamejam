@@ -19,25 +19,33 @@ public class SmoothCameraFollow2D : MonoBehaviour
 
     void LateUpdate()
     {
-        if (NewBehaviourScript.Village == true)
+        if (NewBehaviourScript.Entrace == true)
         {
-            minX = -6.9f;
-            maxX = 23.5f;
-            minY =-2;
-            maxY =5;
+            minX = -130f;
+            maxX = -90f;
+            minY = -5f;
+            maxY = 5;
         }
         else if (NewBehaviourScript.Temple == true)
         {
-            minX = -50;
+            minX = -90;
             maxX = -32;
-            minY = -2;
+            minY = -5;
             maxY = 5;
         }
+        else if (NewBehaviourScript.Village == true)
+        {
+            minX = -6.9f;
+            maxX = 23.5f;
+            minY =-5;
+            maxY =5;
+        }
+       
         else if (NewBehaviourScript.Grave == true)
         {
             minX = 51;
             maxX = 100;
-            minY = -2;
+            minY = -10;
             maxY = 5;
         }
 
