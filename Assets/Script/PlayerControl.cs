@@ -31,7 +31,7 @@ public class Logic : MonoBehaviour
 
         float moveHorizontal = Input.GetAxis("Horizontal");
         Vector2 movement = new Vector2(moveHorizontal, 0f);
-        rb.velocity = movement * speed*Time.deltaTime;
+        rb.velocity = movement * speed;
         //Player movement
         if (LeftCross == true && Input.GetKeyDown(KeyCode.E))
         {
