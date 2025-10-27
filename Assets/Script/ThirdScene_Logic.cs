@@ -97,6 +97,10 @@ public class NewBehaviourScript : MonoBehaviour
             gm_quest.SetActive(false);
             gm_zone = false;
         }
+        if (collision.gameObject.CompareTag("Bag"))
+        {
+            bag_zone = false;
+        }
         if (collision.gameObject.CompareTag("Vil_Tem"))
         {
             vil_tem = false;
