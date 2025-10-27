@@ -25,13 +25,19 @@ public class Logic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Vector3 playerWorldPosition = transform.position;
         float xPosition = playerWorldPosition.x;
         // Player Position Check
 
+        if (NewBehaviourScript.Traveling != true)
+        { 
         float moveHorizontal = Input.GetAxis("Horizontal");
         Vector2 movement = new Vector2(moveHorizontal, 0f);
-        rb.velocity = movement * speed;
+            rb.velocity = movement * speed;
+        }
+        else 
+            rb.velocity = Vector3.zero;
         //Player movement
         if (LeftCross == true && Input.GetKeyDown(KeyCode.E))
         {

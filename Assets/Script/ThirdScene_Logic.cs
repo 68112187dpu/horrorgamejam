@@ -25,7 +25,11 @@ public class NewBehaviourScript : MonoBehaviour
     bool vil_tem = false;
     bool vil_gra = false;
     bool tem_vil = false;
+    bool gra_vil = false;
     public GameObject LoadScene;
+    public static bool Traveling=false;
+    public GameObject Light;
+    public GameObject Flashlight;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +48,16 @@ public class NewBehaviourScript : MonoBehaviour
     void Update()
     {
         
+        if (Grave == true)
+        {
+            Light.SetActive(false);
+            Flashlight.SetActive(true);
+        }
+        else
+        {
+            Light.SetActive(true);
+            Flashlight.SetActive(false);
+        }
         if ( quest_check==true&&bag_zone==true && Input.GetKeyDown(KeyCode.E))
         {
             bag_show();
@@ -60,19 +74,39 @@ public class NewBehaviourScript : MonoBehaviour
         //finish quest bag
         if (vil_tem == true && Input.GetKeyDown(KeyCode.E))
         {
+            Traveling = true;
             LoadScene.SetActive(true);
             player.transform.position = new Vector2(-28f, -3.43f);
             Temple = true;
             Village = false;
-            StartCoroutine(LoadVil_Tem());
+            StartCoroutine(Loading());
         }
         if (tem_vil == true && Input.GetKeyDown(KeyCode.E))
         {
+            Traveling = true;
             LoadScene.SetActive(true);
             player.transform.position = new Vector2(-10f, -3.43f);
             Temple = false;
             Village = true;
-            StartCoroutine(LoadTem_Vil());
+            StartCoroutine(Loading());
+        }
+        if (vil_gra == true && Input.GetKeyDown(KeyCode.E))
+        {
+            Traveling = true;
+            LoadScene.SetActive(true);
+            player.transform.position = new Vector2(47f, -3.43f);
+            Village = false;
+            Grave = true;
+            StartCoroutine(Loading());
+        }
+        if (gra_vil== true && Input.GetKeyDown(KeyCode.E))
+        {
+            Traveling = true;
+            LoadScene.SetActive(true);
+            player.transform.position = new Vector2(27f, -3.43f);
+            Village = true;
+            Grave = false;
+            StartCoroutine(Loading());
         }
         //warp Logic
 
@@ -104,6 +138,10 @@ public class NewBehaviourScript : MonoBehaviour
         {
             tem_vil = true;
         }
+        if (collision.gameObject.CompareTag("Gra_Vil"))
+        {
+            gra_vil = true;
+        }
 
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -130,21 +168,20 @@ public class NewBehaviourScript : MonoBehaviour
         {
             tem_vil = false;
         }
+        if (collision.gameObject.CompareTag("Gra_Vil"))
+        {
+            gra_vil = false;
+        }
 
 
     }
     // Zone check
-    IEnumerator LoadVil_Tem()
+    IEnumerator Loading()
     {
         yield return new WaitForSeconds(2);
         
         LoadScene.SetActive(false);
-    }
-    IEnumerator LoadTem_Vil()
-    {
-        yield return new WaitForSeconds(2);
-    
-        LoadScene.SetActive(false);
+        Traveling=false;
     }
     //Warp wait
 }

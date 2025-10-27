@@ -33,6 +33,13 @@ public class SmoothCameraFollow2D : MonoBehaviour
             minY = -2;
             maxY = 5;
         }
+        else if (NewBehaviourScript.Grave == true)
+        {
+            minX = 51;
+            maxX = 100;
+            minY = -2;
+            maxY = 5;
+        }
 
 
 
