@@ -1,14 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
+using TMPro;
 using UnityEngine.SceneManagement;
+
 
 public class SceneLoader : MonoBehaviour
 {
-    // Call this function from your button
-    public void LoadScene(string Gameplay)
+    public GameObject Extra;
+    void Start()
     {
-        SceneManager.LoadScene(Gameplay);
+        Extra.SetActive(false);
     }
+    // Call this function from your button
+    public void LoadScene()
+    {
+        SceneManager.LoadScene("Gameplay");
+    }
+    
 }
