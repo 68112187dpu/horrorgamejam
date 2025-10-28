@@ -16,6 +16,8 @@ TagManager:
   - Gra_Vil
   - Ent_Tem
   - Tem_Ent
+  - LeftRight
+  - RightLeft
   layers:
   - Default
   - TransparentFX
