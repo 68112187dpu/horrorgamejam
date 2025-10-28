@@ -70,14 +70,14 @@ public class Logic : MonoBehaviour
             //moveHorizontal=0
             //rb.velocity = Vector3.zero;
             //Player movement
-        if (LeftCross == true && Input.GetKeyDown(KeyCode.E))
+        if (LeftCross == true && Input.GetKeyDown(KeyCode.E)&&crossingleft!=true)
             {
                 Logblock.SetActive(false);
                 movable = false;
                 crossingleft = true;
                 firstcross = true; 
             }
-        if (RightCross == true && Input.GetKeyDown(KeyCode.E))
+        if (RightCross == true && Input.GetKeyDown(KeyCode.E) && crossingright != true)
             {
                 Logblock.SetActive(false);
                 crossingright = true;
