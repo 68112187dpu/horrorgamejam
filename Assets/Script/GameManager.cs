@@ -27,11 +27,17 @@ public class NewBehaviourScript : MonoBehaviour
     public static bool Village_2 = false;
     public static bool Entrace = true;
     bool vil_tem = false;
-    bool vil_gra = false;
     bool tem_vil = false;
-    bool gra_vil = false;
     bool ent_tem = false;
     bool tem_ent = false;
+    bool vil_hou = false;
+    bool hou_vil = false; 
+    bool hou_vil2=false;
+    bool vil2_hou = false;
+    bool vil2_gra = false;
+    bool gra_vil2= false;
+    bool gra_fin = false;
+    bool fin_gra = false;
     public GameObject LoadScene;
     public static bool Traveling=false;
     public GameObject Light;
@@ -101,24 +107,6 @@ public class NewBehaviourScript : MonoBehaviour
             Village = true;
             StartCoroutine(Loading());
         }
-        if (vil_gra == true && Input.GetKeyDown(KeyCode.E))
-        {
-            Traveling = true;
-            LoadScene.SetActive(true);
-            player.transform.position = new Vector2(47f, -3.43f);
-            Village = false;
-            Grave = true;
-            StartCoroutine(Loading());
-        }
-        if (gra_vil== true && Input.GetKeyDown(KeyCode.E))
-        {
-            Traveling = true;
-            LoadScene.SetActive(true);
-            player.transform.position = new Vector2(27f, -3.43f);
-            Village = true;
-            Grave = false;
-            StartCoroutine(Loading());
-        }
         if (ent_tem == true && Input.GetKeyDown(KeyCode.E))
         {
             Traveling = true;
@@ -137,6 +125,79 @@ public class NewBehaviourScript : MonoBehaviour
             Entrace = true;
             StartCoroutine(Loading());
         }
+        if (vil_hou == true && Input.GetKeyDown(KeyCode.E))
+        {
+            Traveling = true;
+            LoadScene.SetActive(true);
+            player.transform.position = new Vector2(42, -6.32f);
+            Village = false;
+            House = true;
+            StartCoroutine(Loading());
+        }
+        if (hou_vil == true && Input.GetKeyDown(KeyCode.E))
+        {
+            Traveling = true;
+            LoadScene.SetActive(true);
+            player.transform.position = new Vector2(24, -6.32f);
+            House = false;
+            Village = true;
+            StartCoroutine(Loading());
+        }
+        if (hou_vil2 == true && Input.GetKeyDown(KeyCode.E))
+        {
+            Traveling = true;
+            LoadScene.SetActive(true);
+            player.transform.position = new Vector2(84, -6.32f);
+            House = false;
+            Village_2 = true;
+            StartCoroutine(Loading());
+        }
+        if (vil2_hou == true && Input.GetKeyDown(KeyCode.E))
+        {
+            Traveling = true;
+            LoadScene.SetActive(true);
+            player.transform.position = new Vector2(67, -6.32f);
+            House = true;
+            Village_2 = false;
+            StartCoroutine(Loading());
+        }
+        if (vil2_gra == true && Input.GetKeyDown(KeyCode.E))
+        {
+            Traveling = true;
+            LoadScene.SetActive(true);
+            player.transform.position = new Vector2(133, -6.32f);
+            Village_2 = false;
+            Grave = true;
+            StartCoroutine(Loading());
+        }
+        if (gra_vil2 == true && Input.GetKeyDown(KeyCode.E))
+        {
+            Traveling = true;
+            LoadScene.SetActive(true);
+            player.transform.position = new Vector2(117, -6.32f);
+            Village_2 = true;
+            Grave = false;
+            StartCoroutine(Loading());
+        }
+        if (gra_fin == true && Input.GetKeyDown(KeyCode.E))
+        {
+            Traveling = true;
+            LoadScene.SetActive(true);
+            player.transform.position = new Vector2(206, -6.32f);
+            Final = true;
+            Grave = false;
+            StartCoroutine(Loading());
+        }
+        if (fin_gra == true && Input.GetKeyDown(KeyCode.E))
+        {
+            Traveling = true;
+            LoadScene.SetActive(true);
+            player.transform.position = new Vector2(182, -6.32f);
+            Final = false;
+            Grave = true;
+            StartCoroutine(Loading());
+        }
+        //first_=false last=true
         //warp Logic
 
 
@@ -159,18 +220,11 @@ public class NewBehaviourScript : MonoBehaviour
             vil_tem = true;
            
         }
-        if (collision.gameObject.CompareTag("Vil_Gra"))
-        {
-            vil_gra = true;
-        }
         if (collision.gameObject.CompareTag("Tem_Vil"))
         {
             tem_vil = true;
         }
-        if (collision.gameObject.CompareTag("Gra_Vil"))
-        {
-            gra_vil = true;
-        }
+
         if (collision.gameObject.CompareTag("Ent_Tem"))
         {
             ent_tem = true;
@@ -178,6 +232,38 @@ public class NewBehaviourScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Tem_Ent"))
         {
             tem_ent = true;
+        }
+        if (collision.gameObject.CompareTag("Vil_Hou"))
+        {
+            vil_hou = true;
+        }
+        if (collision.gameObject.CompareTag("Hou_Vil"))
+        {
+            hou_vil = true;
+        }
+        if (collision.gameObject.CompareTag("Hou_Vil2"))
+        {
+            hou_vil2 = true;
+        }
+        if (collision.gameObject.CompareTag("Vil2_Hou"))
+        {
+            vil2_hou = true;
+        }
+        if (collision.gameObject.CompareTag("Vil2_Gra"))
+        {
+            vil2_gra = true;
+        }
+        if (collision.gameObject.CompareTag("Gra_Vil2"))
+        {
+            gra_vil2 = true;
+        }
+        if (collision.gameObject.CompareTag("Gra_Fin"))
+        {
+            gra_fin = true;
+        }
+        if (collision.gameObject.CompareTag("Fin_Gra"))
+        {
+            fin_gra = true;
         }
 
     }
@@ -197,17 +283,9 @@ public class NewBehaviourScript : MonoBehaviour
         {
             vil_tem = false;
         }
-        if (collision.gameObject.CompareTag("Vil_Gra"))
-        {
-            vil_gra = false;
-        }
         if (collision.gameObject.CompareTag("Tem_Vil"))
         {
             tem_vil = false;
-        }
-        if (collision.gameObject.CompareTag("Gra_Vil"))
-        {
-            gra_vil = false;
         }
         if (collision.gameObject.CompareTag("Ent_Tem"))
         {
@@ -217,13 +295,44 @@ public class NewBehaviourScript : MonoBehaviour
         {
             tem_ent = false;
         }
-
+        if (collision.gameObject.CompareTag("Vil_Hou"))
+        {
+            vil_hou = false;
+        }
+        if (collision.gameObject.CompareTag("Hou_Vil"))
+        {
+            hou_vil = false;
+        }
+        if (collision.gameObject.CompareTag("Hou_Vil2"))
+        {
+            hou_vil2 = false;
+        }
+        if (collision.gameObject.CompareTag("Vil2_Hou"))
+        {
+            vil2_hou = false;
+        }
+        if (collision.gameObject.CompareTag("Vil2_Gra"))
+        {
+            vil2_gra = false;
+        }
+        if (collision.gameObject.CompareTag("Gra_Vil2"))
+        {
+            gra_vil2 = false;
+        }
+        if (collision.gameObject.CompareTag("Gra_Fin"))
+        {
+            gra_fin = false;
+        }
+        if (collision.gameObject.CompareTag("Fin_Gra"))
+        {
+            fin_gra = false;
+        }
 
     }
     // Zone check
     IEnumerator Loading()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5f);
         
         LoadScene.SetActive(false);
         Traveling=false;

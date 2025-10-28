@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GuideTextlock : MonoBehaviour
 {
+    public GameObject player;
     private Vector3 originalLocalScale;
 
     void Awake()
@@ -16,7 +17,8 @@ public class GuideTextlock : MonoBehaviour
     void LateUpdate()
     {
         // 1. Check the Parent's X Scale
-        float parentScaleX = transform.parent.localScale.x;
+
+        float parentScaleX = player.transform.localScale.x;
 
         // 2. Check if the parent is flipped (i.e., its X scale is negative)
         if (parentScaleX < 0)
