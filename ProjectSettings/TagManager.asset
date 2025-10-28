@@ -27,6 +27,10 @@ TagManager:
   - Gra_Fin
   - Fin_Gra
   - WarpText
+  - FightSpawn
+  - GiftZone
+  - FootZone
+  - Foot
   layers:
   - Default
   - TransparentFX

@@ -23,6 +23,7 @@ public class Logic : MonoBehaviour
     bool crossingleft = false;
     bool crossingright = false;
     public GameObject Logblock;
+    public static bool firstwarp = false;
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +48,7 @@ public class Logic : MonoBehaviour
         }
         else
         {
-            speed = 10;
+            speed = 20;
         }
 
         if (NewBehaviourScript.Traveling != true)
@@ -126,8 +127,11 @@ public class Logic : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("WarpText"))
         {
-            Guide.SetActive(true);
-            textMeshPro.text = "E";
+            if (firstwarp != true)
+            {
+                Guide.SetActive(true);
+                textMeshPro.text = "E";
+            }
         }
 
     }
