@@ -21,31 +21,52 @@ public class SmoothCameraFollow2D : MonoBehaviour
     {
         if (NewBehaviourScript.Entrace == true)
         {
-            minX = -130f;
-            maxX = -90f;
+            minX = -131f;
+            maxX = -97f;
             minY = -5f;
             maxY = 5;
         }
         else if (NewBehaviourScript.Temple == true)
         {
-            minX = -90;
-            maxX = -32;
+            minX = -74f;
+            maxX = -34f;
             minY = -5;
             maxY = 5;
         }
         else if (NewBehaviourScript.Village == true)
         {
-            minX = -6.9f;
-            maxX = 23.5f;
+            minX = -9f;
+            maxX = 21f;
             minY =-5;
             maxY =5;
         }
-       
+        else if (NewBehaviourScript.House == true)
+        {
+            minX = 35f;
+            maxX = 65f;
+            minY = -5;
+            maxY = 5;
+        }
+        else if (NewBehaviourScript.Village_2 == true)
+        {
+            minX = 77f;
+            maxX = 114f;
+            minY = -5;
+            maxY = 5;
+        }
+
         else if (NewBehaviourScript.Grave == true)
         {
-            minX = 51;
-            maxX = 100;
-            minY = -10;
+            minX = 125f;
+            maxX = 178f;
+            minY = -5;
+            maxY = 5;
+        }
+        else if (NewBehaviourScript.Final == true)
+        {
+            minX = 197;
+            maxX = 252;
+            minY = -5;
             maxY = 5;
         }
 

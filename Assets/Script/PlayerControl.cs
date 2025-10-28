@@ -39,11 +39,15 @@ public class Logic : MonoBehaviour
         // Player Position Check
         if (NewBehaviourScript.slow == true)
         {
-            speed = 10;
+            speed = 5;
+        }
+        else if (NewBehaviourScript.Final==true)
+        {
+            speed= 3;
         }
         else
         {
-            speed = 20;
+            speed = 10;
         }
 
         if (NewBehaviourScript.Traveling != true)
@@ -120,7 +124,12 @@ public class Logic : MonoBehaviour
         {
             Guide.SetActive(false);
         }
-        
+        if (collision.gameObject.CompareTag("WarpText"))
+        {
+            Guide.SetActive(true);
+            textMeshPro.text = "E";
+        }
+
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -149,6 +158,10 @@ public class Logic : MonoBehaviour
             Logblock.SetActive(true);
             crossingright = false;
             movable = true;
+        }
+        if (collision.gameObject.CompareTag("WarpText"))
+        {
+            Guide.SetActive(false);
         }
 
     }

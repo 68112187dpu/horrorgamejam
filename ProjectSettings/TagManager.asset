@@ -18,6 +18,15 @@ TagManager:
   - Tem_Ent
   - LeftRight
   - RightLeft
+  - Vil_Hou
+  - Hou_Vil
+  - Hou_Vil2
+  - Vil2_Hou
+  - Vil2_Gra
+  - Gra_Vil2
+  - Gra_Fin
+  - Fin_Gra
+  - WarpText
   layers:
   - Default
   - TransparentFX
