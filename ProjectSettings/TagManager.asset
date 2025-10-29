@@ -33,6 +33,7 @@ TagManager:
   - Foot
   - QuestText
   - Lamp
+  - Ground
   layers:
   - Default
   - TransparentFX

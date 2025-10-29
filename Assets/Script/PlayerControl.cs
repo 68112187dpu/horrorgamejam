@@ -24,6 +24,10 @@ public class Logic : MonoBehaviour
     bool crossingright = false;
     public GameObject Logblock;
     public static bool firstwarp = false;
+    bool climb = false;
+    bool climbing = false;
+    bool grounded = true;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -51,17 +55,19 @@ public class Logic : MonoBehaviour
         {
             speed = 20;
         }
-
+        // speed adjust 
         if (NewBehaviourScript.Traveling != true)
         {
+            float moveHorizontal = Input.GetAxis("Horizontal");
             if (movable == true)
             {
-                float moveHorizontal = Input.GetAxis("Horizontal");
-                //Vector2 movement = new Vector2(moveHorizontal, 0f);
-                //rb.velocity = movement * speed;
+               
+                Vector2 movement = new Vector2(moveHorizontal, 0f);
+
+                
                 if (moveHorizontal > 0)
                 {
-                    player.transform.Translate(Vector2.right * speed * Time.deltaTime);
+                    //player.transform.Translate(Vector2.right * speed * Time.deltaTime);
                     // Face right
                     transform.localScale = new Vector3(originalScaleX, transform.localScale.y, transform.localScale.z);
                 }
@@ -70,13 +76,23 @@ public class Logic : MonoBehaviour
 
                     // Face left by making the X scale negative
                     transform.localScale = new Vector3(-originalScaleX, transform.localScale.y, transform.localScale.z);
-                    player.transform.Translate(Vector2.left * speed * Time.deltaTime);
+                    //player.transform.Translate(Vector2.left * speed * Time.deltaTime);
+                }
+                if (NewBehaviourScript.Traveling == true)
+                {
+                    moveHorizontal = 0;
+                    rb.velocity = Vector2.zero;
+                    rb.angularVelocity = 0f;
+                }
+                else
+                {
+                    rb.velocity = movement * speed;
                 }
             }
-            //moveHorizontal=0
-            //rb.velocity = Vector3.zero;
+
+           
             //Player movement
-        if (LeftCross == true && Input.GetKeyDown(KeyCode.J)&&crossingright!=true)
+            if (LeftCross == true && Input.GetKeyDown(KeyCode.J)&&crossingright!=true)
             {
                 Logblock.SetActive(false);
                 movable = false;
@@ -88,19 +104,36 @@ public class Logic : MonoBehaviour
                 Logblock.SetActive(false);
                 crossingright = true;
                 movable = false;
-                player.transform.Translate(Vector2.left * Crossing * Time.deltaTime);
             }
             //Cross Logic
         }
         if (crossingleft == true&&LeftCross == true)
         {
+            rb.velocity = Vector2.zero;
             player.transform.Translate(Vector2.right * Crossing * Time.deltaTime);
         }
         if (crossingright == true&& RightCross == true)
         {
+            rb.velocity = Vector2.zero;
             player.transform.Translate(Vector2.left * Crossing * Time.deltaTime);
         }
 
+        if (NewBehaviourScript.gift_accept==true&&grounded==true&&climb == true && Input.GetKeyDown(KeyCode.J)&&NewBehaviourScript.getgift!=true)
+        {
+            rb.velocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+            movable = false;
+            climbing = true;
+            grounded = false;
+            
+        }
+        if(climbing==true)
+        {
+            player.transform.Translate(Vector2.up * Crossing * Time.deltaTime);
+            rb.gravityScale = 0f;
+        }
+        //lamp climbing
+        
     }
  
 
@@ -134,7 +167,15 @@ public class Logic : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("QuestText") && NewBehaviourScript.quest_check == true)
         {
-            Guide.SetActive(true);
+            if (NewBehaviourScript.firstpick != true)
+            {
+                Guide.SetActive(true);
+            }
+        }
+        if (collision.gameObject.CompareTag("Lamp"))
+        {
+
+            climb = true;
         }
 
     }
@@ -174,6 +215,21 @@ public class Logic : MonoBehaviour
         {
             Guide.SetActive(false);
         }
+        if (collision.gameObject.CompareTag("Lamp"))
+        {
+            rb.gravityScale = 10f;
+            climb = false;
+            climbing = false;
+        }
 
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            movable = true;
+            grounded = true;
+        }
     }
 }
