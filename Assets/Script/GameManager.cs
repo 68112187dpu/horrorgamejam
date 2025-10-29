@@ -38,7 +38,7 @@ public class NewBehaviourScript : MonoBehaviour
     bool gra_fin = false;
     bool fin_gra = false;
     public GameObject LoadScene;
-    public static bool Traveling=false;
+    public static bool Traveling=true;
     public GameObject Light;
     public GameObject Flashlight;
     public static bool slow=false;
@@ -50,7 +50,7 @@ public class NewBehaviourScript : MonoBehaviour
     public GameObject gift_quest;
     public GameObject show_gift;
     bool firstfight=true;
-    bool gift_accept;
+    public static bool gift_accept;
     bool foot_accept;
     public GameObject show_foot;
     public GameObject foot_quest;
@@ -60,13 +60,18 @@ public class NewBehaviourScript : MonoBehaviour
     bool biker_zone=false;
     bool first_foot=true;
     bool biker_done = false;
-   
-
+    public GameObject guide;
+    public static bool firstpick = false;
+    public static bool getgift = false;
+    public GameObject couple;
+    public static bool done=false;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        LoadScene.SetActive(true);
+        StartCoroutine(Starting());
         foot_quest.SetActive(false);
         show_foot.SetActive(false);
         figher.SetActive(false);
@@ -78,7 +83,6 @@ public class NewBehaviourScript : MonoBehaviour
         show_bag.SetActive(false);
         happy_gm.SetActive(false);
         gm_quest.SetActive(false);
-        LoadScene.SetActive(false);
     }
     void bag_show()
     {
@@ -101,6 +105,8 @@ public class NewBehaviourScript : MonoBehaviour
         }
         if ( quest_check==true&&bag_zone==true && Input.GetKeyDown(KeyCode.J))
         {
+            firstpick=true;
+            guide.SetActive(false);
             quest_check = false;
             bag_show();
             bag_object.SetActive(false);
@@ -119,6 +125,7 @@ public class NewBehaviourScript : MonoBehaviour
         //finish quest bag
         if (foot_accept == true && foot_zone == true && Input.GetKeyDown(KeyCode.J))
         {
+            slow = true;
             first_foot = false;
             feet = true;
             show_foot.SetActive(true);
@@ -126,15 +133,22 @@ public class NewBehaviourScript : MonoBehaviour
         }
         if (biker_zone == true && feet == true && foot_accept == true && Input.GetKeyDown(KeyCode.J))
         {
-            biker_done=true;
+            gift_accept = true;
+            slow = false;
+            biker_done =true;
             show_foot.SetActive(false);
             feet = false;
             biker.SetActive(false);
             foot_accept = false;
         }
         //foot quest
-        
-        
+        if (gift_quest == true && getgift == true  && Input.GetKeyDown(KeyCode.J))
+        {
+            couple.SetActive(false);
+            Traveling = true;
+        }
+        //done
+
         if (vil_tem == true && Input.GetKeyDown(KeyCode.J))
         {
             Traveling = true;
@@ -347,6 +361,14 @@ public class NewBehaviourScript : MonoBehaviour
         {
             foot_zone = true;
         }
+        if (collision.gameObject.CompareTag("Gift"))
+        {
+            finlock.SetActive(false);
+            getgift = true;
+            slow=true;
+            show_gift.SetActive(true);
+            gift.SetActive(false);
+        }
 
 
     }
@@ -433,6 +455,13 @@ public class NewBehaviourScript : MonoBehaviour
         LoadScene.SetActive(false);
         Traveling=false;
     }
+    IEnumerator Starting()
+    {
+        yield return new WaitForSeconds(0.5f);
+        LoadScene.SetActive(false);
+        Traveling = false;
+    }
+
     //Warp wait
 }
     
