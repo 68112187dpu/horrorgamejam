@@ -149,117 +149,120 @@ public class NewBehaviourScript : MonoBehaviour
         }
         //done
 
-        if (vil_tem == true && Input.GetKeyDown(KeyCode.J))
+        if (Traveling != true)
         {
-            Traveling = true;
-            LoadScene.SetActive(true);
-            player.transform.position = new Vector2(-28f, -6.32f);
-            Temple = true;
-            Village = false;
-            StartCoroutine(Loading());
-        }
-        if (tem_vil == true && Input.GetKeyDown(KeyCode.J))
-        {
-            Traveling = true;
-            LoadScene.SetActive(true);
-            player.transform.position = new Vector2(-10f, -6.32f);
-            Temple = false;
-            Village = true;
-            StartCoroutine(Loading());
-        }
-        if (ent_tem == true && Input.GetKeyDown(KeyCode.J))
-        {
-            Logic.firstwarp = true;
-            Traveling = true;
-            LoadScene.SetActive(true);
-            player.transform.position = new Vector2(-75, -6.32f);
-            Temple = true;
-            Entrace = false;
-            StartCoroutine(Loading());
-        }
-        if (tem_ent == true && Input.GetKeyDown(KeyCode.J))
-        {
-            Traveling = true;
-            LoadScene.SetActive(true);
-            player.transform.position = new Vector2(-96, -6.32f);
-            Temple = false;
-            Entrace = true;
-            StartCoroutine(Loading());
-        }
-        if (vil_hou == true && Input.GetKeyDown(KeyCode.J))
-        {
-            Traveling = true;
-            LoadScene.SetActive(true);
-            player.transform.position = new Vector2(42, -6.32f);
-            Village = false;
-            House = true;
-            StartCoroutine(Loading());
-        }
-        if (hou_vil == true && Input.GetKeyDown(KeyCode.J))
-        {
-            Traveling = true;
-            LoadScene.SetActive(true);
-            player.transform.position = new Vector2(24, -6.32f);
-            House = false;
-            Village = true;
-            StartCoroutine(Loading());
-        }
-        if (hou_vil2 == true && Input.GetKeyDown(KeyCode.J))
-        {
-            Traveling = true;
-            LoadScene.SetActive(true);
-            player.transform.position = new Vector2(84, -6.32f);
-            House = false;
-            Village_2 = true;
-            StartCoroutine(Loading());
-        }
-        if (vil2_hou == true && Input.GetKeyDown(KeyCode.J))
-        {
-            Traveling = true;
-            LoadScene.SetActive(true);
-            player.transform.position = new Vector2(67, -6.32f);
-            House = true;
-            Village_2 = false;
-            StartCoroutine(Loading());
-        }
-        if (vil2_gra == true && Input.GetKeyDown(KeyCode.J))
-        {
-            figher.SetActive(false);
-            firstfight = false;
-            //fighter spawn
-            Traveling = true;
-            LoadScene.SetActive(true);
-            player.transform.position = new Vector2(133, -6.32f);
-            Village_2 = false;
-            Grave = true;
-            StartCoroutine(Loading());
-        }
-        if (gra_vil2 == true && Input.GetKeyDown(KeyCode.J))
-        {
-            Traveling = true;
-            LoadScene.SetActive(true);
-            player.transform.position = new Vector2(117, -6.32f);
-            Village_2 = true;
-            Grave = false;
-            StartCoroutine(Loading());
-        }
-        if (gra_fin == true && Input.GetKeyDown(KeyCode.J))
-        {
-            Traveling = true;
-            LoadScene.SetActive(true);
-            player.transform.position = new Vector2(206, -6.32f);
-            Final = true;
-            Grave = false;
-            StartCoroutine(Loading());
-        }
-        if (fin_gra == true && Input.GetKeyDown(KeyCode.J))
-        {
-            Traveling = true;
-            LoadScene.SetActive(true);
-            player.transform.position = new Vector2(182, -6.32f);
-            Final = false;
-            Grave = true;
-            StartCoroutine(Loading());
+            if (vil_tem == true && Input.GetKeyDown(KeyCode.J))
+            {
+                Traveling = true;
+                LoadScene.SetActive(true);
+                player.transform.position = new Vector2(-28f, -6.32f);
+                Temple = true;
+                Village = false;
+                StartCoroutine(Loading());
+            }
+            if (tem_vil == true && Input.GetKeyDown(KeyCode.J))
+            {
+                Traveling = true;
+                LoadScene.SetActive(true);
+                player.transform.position = new Vector2(-10f, -6.32f);
+                Temple = false;
+                Village = true;
+                StartCoroutine(Loading());
+            }
+            if (ent_tem == true && Input.GetKeyDown(KeyCode.J))
+            {
+                Logic.firstwarp = true;
+                Traveling = true;
+                LoadScene.SetActive(true);
+                player.transform.position = new Vector2(-75, -6.32f);
+                Temple = true;
+                Entrace = false;
+                StartCoroutine(Loading());
+            }
+            if (tem_ent == true && Input.GetKeyDown(KeyCode.J))
+            {
+                Traveling = true;
+                LoadScene.SetActive(true);
+                player.transform.position = new Vector2(-96, -6.32f);
+                Temple = false;
+                Entrace = true;
+                StartCoroutine(Loading());
+            }
+            if (vil_hou == true && Input.GetKeyDown(KeyCode.J))
+            {
+                Traveling = true;
+                LoadScene.SetActive(true);
+                player.transform.position = new Vector2(42, -6.32f);
+                Village = false;
+                House = true;
+                StartCoroutine(Loading());
+            }
+            if (hou_vil == true && Input.GetKeyDown(KeyCode.J))
+            {
+                Traveling = true;
+                LoadScene.SetActive(true);
+                player.transform.position = new Vector2(24, -6.32f);
+                House = false;
+                Village = true;
+                StartCoroutine(Loading());
+            }
+            if (hou_vil2 == true && Input.GetKeyDown(KeyCode.J))
+            {
+                Traveling = true;
+                LoadScene.SetActive(true);
+                player.transform.position = new Vector2(84, -6.32f);
+                House = false;
+                Village_2 = true;
+                StartCoroutine(Loading());
+            }
+            if (vil2_hou == true && Input.GetKeyDown(KeyCode.J))
+            {
+                Traveling = true;
+                LoadScene.SetActive(true);
+                player.transform.position = new Vector2(67, -6.32f);
+                House = true;
+                Village_2 = false;
+                StartCoroutine(Loading());
+            }
+            if (vil2_gra == true && Input.GetKeyDown(KeyCode.J))
+            {
+                figher.SetActive(false);
+                firstfight = false;
+                //fighter spawn
+                Traveling = true;
+                LoadScene.SetActive(true);
+                player.transform.position = new Vector2(133, -6.32f);
+                Village_2 = false;
+                Grave = true;
+                StartCoroutine(Loading());
+            }
+            if (gra_vil2 == true && Input.GetKeyDown(KeyCode.J))
+            {
+                Traveling = true;
+                LoadScene.SetActive(true);
+                player.transform.position = new Vector2(117, -6.32f);
+                Village_2 = true;
+                Grave = false;
+                StartCoroutine(Loading());
+            }
+            if (gra_fin == true && Input.GetKeyDown(KeyCode.J))
+            {
+                Traveling = true;
+                LoadScene.SetActive(true);
+                player.transform.position = new Vector2(206, -6.32f);
+                Final = true;
+                Grave = false;
+                StartCoroutine(Loading());
+            }
+            if (fin_gra == true && Input.GetKeyDown(KeyCode.J))
+            {
+                Traveling = true;
+                LoadScene.SetActive(true);
+                player.transform.position = new Vector2(182, -6.32f);
+                Final = false;
+                Grave = true;
+                StartCoroutine(Loading());
+            }
         }
         //first_=false last=true
         //warp Logic
