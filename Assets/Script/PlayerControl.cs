@@ -27,6 +27,7 @@ public class Logic : MonoBehaviour
     bool climb = false;
     bool climbing = false;
     bool grounded = true;
+    bool firstclimb=false;
     
 
     // Start is called before the first frame update
@@ -125,7 +126,9 @@ public class Logic : MonoBehaviour
             movable = false;
             climbing = true;
             grounded = false;
-            
+            Guide.SetActive(false);
+            firstclimb = true;
+
         }
         if(climbing==true)
         {
@@ -174,6 +177,11 @@ public class Logic : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Lamp"))
         {
+            if (NewBehaviourScript.gift_accept == true&&!firstclimb!=true)
+            {
+                Guide.SetActive(true);
+            }
+
 
             climb = true;
         }
@@ -220,6 +228,7 @@ public class Logic : MonoBehaviour
             rb.gravityScale = 10f;
             climb = false;
             climbing = false;
+
         }
 
     }

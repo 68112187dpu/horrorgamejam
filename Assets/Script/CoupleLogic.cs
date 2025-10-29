@@ -15,7 +15,7 @@ public class CoupleLogic : MonoBehaviour
     {
         if(NewBehaviourScript.getgift==true)
         {
-            transform.position = new Vector2(10, -0.46f);
+            transform.position = new Vector2(248, -3f);
         }
     }
 }

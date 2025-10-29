@@ -65,7 +65,7 @@ public class NewBehaviourScript : MonoBehaviour
     public static bool getgift = false;
     public GameObject couple;
     public static bool done=false;
-
+    bool gift_zone = false;
 
     // Start is called before the first frame update
     void Start()
@@ -142,7 +142,7 @@ public class NewBehaviourScript : MonoBehaviour
             foot_accept = false;
         }
         //foot quest
-        if (gift_quest == true && getgift == true  && Input.GetKeyDown(KeyCode.J))
+        if (gift_quest == true && getgift == true  && Input.GetKeyDown(KeyCode.J)&&gift_zone==true)
         {
             couple.SetActive(false);
             Traveling = true;
@@ -264,7 +264,6 @@ public class NewBehaviourScript : MonoBehaviour
         //first_=false last=true
         //warp Logic
 
-
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -348,6 +347,7 @@ public class NewBehaviourScript : MonoBehaviour
             {
                 biker.SetActive(true);
             }
+            gift_zone = true;
             gift_quest.SetActive(true);
             foot_accept = true;
         }
@@ -435,6 +435,7 @@ public class NewBehaviourScript : MonoBehaviour
         if (collision.gameObject.CompareTag("GiftZone"))
         {
             gift_quest.SetActive(false);
+            gift_zone = false;
         }
         if (collision.gameObject.CompareTag("FootZone"))
         {
@@ -444,6 +445,15 @@ public class NewBehaviourScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Foot"))
         {
             foot_zone = false;
+        }if (biker_zone == true && feet == true && foot_accept == true && Input.GetKeyDown(KeyCode.J))
+        {
+            gift_accept = true;
+            slow = false;
+            biker_done =true;
+            show_foot.SetActive(false);
+            feet = false;
+            biker.SetActive(false);
+            foot_accept = false;
         }
 
     }

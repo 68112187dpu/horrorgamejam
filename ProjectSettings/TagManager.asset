@@ -34,6 +34,7 @@ TagManager:
   - QuestText
   - Lamp
   - Ground
+  - Gift
   layers:
   - Default
   - TransparentFX
