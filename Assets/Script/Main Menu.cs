@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -19,4 +19,25 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene("Gameplay");
     }
     
+}
+public class PanelController : MonoBehaviour
+{
+    private GameObject panel;
+
+    void Start()
+    {
+        // หา Panel ด้วย Tag
+        panel = GameObject.FindGameObjectWithTag("NG");
+
+        // ปิด Panel ตอนเริ่มเกม
+        if (panel != null)
+            panel.SetActive(false);
+    }
+
+    // ฟังก์ชันเรียกเมื่อกดปุ่ม
+    public void OnButtonClick()
+    {
+        if (panel != null)
+            panel.SetActive(true);
+    }
 }
