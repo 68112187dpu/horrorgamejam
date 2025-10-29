@@ -8,7 +8,7 @@ public class NewBehaviourScript : MonoBehaviour
 {
     
     public GameObject gm_quest;
-    bool quest_check = false;
+    public static bool quest_check = false;
     bool bag_zone = false;
     bool bag=false;
     bool gm_zone;
@@ -99,15 +99,17 @@ public class NewBehaviourScript : MonoBehaviour
             Light.SetActive(true);
             Flashlight.SetActive(false);
         }
-        if ( quest_check==true&&bag_zone==true && Input.GetKeyDown(KeyCode.E))
+        if ( quest_check==true&&bag_zone==true && Input.GetKeyDown(KeyCode.J))
         {
+            quest_check = false;
             bag_show();
             bag_object.SetActive(false);
             slow=true;
         }
         //get the bag
-        if (gm_zone==true&&bag==true&&quest_check==true && Input.GetKeyDown(KeyCode.E))
+        if (gm_zone==true&&bag==true&&quest_check==true && Input.GetKeyDown(KeyCode.J))
         {
+           
             show_bag.SetActive(false);
             bag=false;
             grandma.SetActive(false);
@@ -115,14 +117,14 @@ public class NewBehaviourScript : MonoBehaviour
             slow=false;
         }
         //finish quest bag
-        if (foot_accept == true && foot_zone == true && Input.GetKeyDown(KeyCode.E))
+        if (foot_accept == true && foot_zone == true && Input.GetKeyDown(KeyCode.J))
         {
             first_foot = false;
             feet = true;
             show_foot.SetActive(true);
             foot.SetActive(false);
         }
-        if (biker_zone == true && feet == true && foot_accept == true && Input.GetKeyDown(KeyCode.E))
+        if (biker_zone == true && feet == true && foot_accept == true && Input.GetKeyDown(KeyCode.J))
         {
             biker_done=true;
             show_foot.SetActive(false);
@@ -133,7 +135,7 @@ public class NewBehaviourScript : MonoBehaviour
         //foot quest
         
         
-        if (vil_tem == true && Input.GetKeyDown(KeyCode.E))
+        if (vil_tem == true && Input.GetKeyDown(KeyCode.J))
         {
             Traveling = true;
             LoadScene.SetActive(true);
@@ -142,7 +144,7 @@ public class NewBehaviourScript : MonoBehaviour
             Village = false;
             StartCoroutine(Loading());
         }
-        if (tem_vil == true && Input.GetKeyDown(KeyCode.E))
+        if (tem_vil == true && Input.GetKeyDown(KeyCode.J))
         {
             Traveling = true;
             LoadScene.SetActive(true);
@@ -151,7 +153,7 @@ public class NewBehaviourScript : MonoBehaviour
             Village = true;
             StartCoroutine(Loading());
         }
-        if (ent_tem == true && Input.GetKeyDown(KeyCode.E))
+        if (ent_tem == true && Input.GetKeyDown(KeyCode.J))
         {
             Logic.firstwarp = true;
             Traveling = true;
@@ -161,7 +163,7 @@ public class NewBehaviourScript : MonoBehaviour
             Entrace = false;
             StartCoroutine(Loading());
         }
-        if (tem_ent == true && Input.GetKeyDown(KeyCode.E))
+        if (tem_ent == true && Input.GetKeyDown(KeyCode.J))
         {
             Traveling = true;
             LoadScene.SetActive(true);
@@ -170,7 +172,7 @@ public class NewBehaviourScript : MonoBehaviour
             Entrace = true;
             StartCoroutine(Loading());
         }
-        if (vil_hou == true && Input.GetKeyDown(KeyCode.E))
+        if (vil_hou == true && Input.GetKeyDown(KeyCode.J))
         {
             Traveling = true;
             LoadScene.SetActive(true);
@@ -179,7 +181,7 @@ public class NewBehaviourScript : MonoBehaviour
             House = true;
             StartCoroutine(Loading());
         }
-        if (hou_vil == true && Input.GetKeyDown(KeyCode.E))
+        if (hou_vil == true && Input.GetKeyDown(KeyCode.J))
         {
             Traveling = true;
             LoadScene.SetActive(true);
@@ -188,7 +190,7 @@ public class NewBehaviourScript : MonoBehaviour
             Village = true;
             StartCoroutine(Loading());
         }
-        if (hou_vil2 == true && Input.GetKeyDown(KeyCode.E))
+        if (hou_vil2 == true && Input.GetKeyDown(KeyCode.J))
         {
             Traveling = true;
             LoadScene.SetActive(true);
@@ -197,7 +199,7 @@ public class NewBehaviourScript : MonoBehaviour
             Village_2 = true;
             StartCoroutine(Loading());
         }
-        if (vil2_hou == true && Input.GetKeyDown(KeyCode.E))
+        if (vil2_hou == true && Input.GetKeyDown(KeyCode.J))
         {
             Traveling = true;
             LoadScene.SetActive(true);
@@ -206,7 +208,7 @@ public class NewBehaviourScript : MonoBehaviour
             Village_2 = false;
             StartCoroutine(Loading());
         }
-        if (vil2_gra == true && Input.GetKeyDown(KeyCode.E))
+        if (vil2_gra == true && Input.GetKeyDown(KeyCode.J))
         {
             figher.SetActive(false);
             firstfight = false;
@@ -218,7 +220,7 @@ public class NewBehaviourScript : MonoBehaviour
             Grave = true;
             StartCoroutine(Loading());
         }
-        if (gra_vil2 == true && Input.GetKeyDown(KeyCode.E))
+        if (gra_vil2 == true && Input.GetKeyDown(KeyCode.J))
         {
             Traveling = true;
             LoadScene.SetActive(true);
@@ -227,7 +229,7 @@ public class NewBehaviourScript : MonoBehaviour
             Grave = false;
             StartCoroutine(Loading());
         }
-        if (gra_fin == true && Input.GetKeyDown(KeyCode.E))
+        if (gra_fin == true && Input.GetKeyDown(KeyCode.J))
         {
             Traveling = true;
             LoadScene.SetActive(true);
@@ -236,7 +238,7 @@ public class NewBehaviourScript : MonoBehaviour
             Grave = false;
             StartCoroutine(Loading());
         }
-        if (fin_gra == true && Input.GetKeyDown(KeyCode.E))
+        if (fin_gra == true && Input.GetKeyDown(KeyCode.J))
         {
             Traveling = true;
             LoadScene.SetActive(true);
@@ -252,6 +254,7 @@ public class NewBehaviourScript : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+     
 
         if (collision.gameObject.CompareTag("Quest"))
         {

@@ -15,7 +15,7 @@ public class Logic : MonoBehaviour
     bool LeftCross = false;
     bool firstcross=false;
     public GameObject Guide;
-    public TextMeshPro textMeshPro;
+    public GameObject GuideL;
     public static bool passed_3;
     public float originalScaleX;
     public bool movable = true;
@@ -28,6 +28,7 @@ public class Logic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Guide.SetActive(false);
         originalScaleX = Mathf.Abs(transform.localScale.x);
         passed_3 = false;
     }
@@ -75,14 +76,14 @@ public class Logic : MonoBehaviour
             //moveHorizontal=0
             //rb.velocity = Vector3.zero;
             //Player movement
-        if (LeftCross == true && Input.GetKeyDown(KeyCode.E)&&crossingright!=true)
+        if (LeftCross == true && Input.GetKeyDown(KeyCode.J)&&crossingright!=true)
             {
                 Logblock.SetActive(false);
                 movable = false;
                 crossingleft = true;
                 firstcross = true; 
             }
-        if (RightCross == true && Input.GetKeyDown(KeyCode.E) && crossingleft != true)
+        if (RightCross == true && Input.GetKeyDown(KeyCode.J) && crossingleft != true)
             {
                 Logblock.SetActive(false);
                 crossingright = true;
@@ -112,7 +113,6 @@ public class Logic : MonoBehaviour
             if (firstcross == false)
             {
                 Guide.SetActive(true);
-                textMeshPro.text = "E";
             }
             //not text after first cross
         }
@@ -123,20 +123,27 @@ public class Logic : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Text"))
         {
-            Guide.SetActive(false);
+            GuideL.SetActive(false);
         }
         if (collision.gameObject.CompareTag("WarpText"))
         {
             if (firstwarp != true)
             {
                 Guide.SetActive(true);
-                textMeshPro.text = "E";
             }
+        }
+        if (collision.gameObject.CompareTag("QuestText") && NewBehaviourScript.quest_check == true)
+        {
+            Guide.SetActive(true);
         }
 
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.gameObject.CompareTag("QuestText") && NewBehaviourScript.quest_check == true)
+        {
+            Guide.SetActive(false);
+        }
         if (collision.gameObject.CompareTag("QTE"))
         {
             

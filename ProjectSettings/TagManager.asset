@@ -31,6 +31,8 @@ TagManager:
   - GiftZone
   - FootZone
   - Foot
+  - QuestText
+  - Lamp
   layers:
   - Default
   - TransparentFX
