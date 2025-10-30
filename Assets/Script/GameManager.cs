@@ -70,11 +70,14 @@ public class NewBehaviourScript : MonoBehaviour
     public Rigidbody2D rb;
     public GameObject Fighter_House;
     public GameObject biker_lamp;
+    public GameObject point_right;
+    public GameObject point_left;
     
 
     // Start is called before the first frame update
     void Start()
     {
+        point_left.SetActive(false);
         biker_lamp.SetActive(false);
         Fighter_House.SetActive(false);
         LoadScene.SetActive(true);
@@ -113,6 +116,7 @@ public class NewBehaviourScript : MonoBehaviour
         }
         if ( quest_check==true&&bag_zone==true && Input.GetKeyDown(KeyCode.J))
         {
+            point_right.SetActive(true);
             firstpick=true;
             guide.SetActive(false);
             quest_check = false;
@@ -141,7 +145,7 @@ public class NewBehaviourScript : MonoBehaviour
         }
         if (biker_zone == true && feet == true && foot_accept == true && Input.GetKeyDown(KeyCode.J))
         {
-            
+            point_right.SetActive(true);
             biker_lamp.SetActive(true);
             gift.SetActive(true);
             gift_accept = true;
@@ -311,12 +315,15 @@ public class NewBehaviourScript : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Quest"))
         {
+            point_left.SetActive(true);
+            point_right.SetActive(false);
             gm_quest.SetActive(true);
             quest_check = true;
             gm_zone = true;
         }
         if (collision.gameObject.CompareTag("Bag"))
         {
+            point_left.SetActive(false);
             bag_zone=true;
         }
         if (collision.gameObject.CompareTag("Vil_Tem"))
@@ -380,6 +387,8 @@ public class NewBehaviourScript : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("GiftZone"))
         {
+            point_left.SetActive(true);
+            point_right.SetActive(false);
             if (first_foot == true)
             {
                 foot.SetActive(true);
@@ -403,6 +412,7 @@ public class NewBehaviourScript : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Foot"))
         {
+            point_left.SetActive(false);
             foot_zone = true;
         }
         if (collision.gameObject.CompareTag("Gift"))
@@ -494,6 +504,10 @@ public class NewBehaviourScript : MonoBehaviour
         if (collision.gameObject.CompareTag("House_Jump"))
         {
             house_closed.SetActive(false);
+        }
+        if (collision.gameObject.CompareTag("Lamp"))
+        {
+            point_right.SetActive(false);
         }
 
 
