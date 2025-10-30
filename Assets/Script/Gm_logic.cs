@@ -9,10 +9,13 @@ public class Gm_logic : MonoBehaviour
     public GameObject gm;
     public GameObject cleargm;
     public GameObject cleartrash;
+    public GameObject houseclose;
+    public GameObject houseopen;
     // Start is called before the first frame update
     void Start()
     {
-        rb=GetComponent<Rigidbody2D>();
+        houseclose.SetActive(false);
+        rb =GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -25,6 +28,8 @@ public class Gm_logic : MonoBehaviour
     {
         if (collision.gameObject.CompareTag ("Finish"))
         {
+            houseopen.SetActive(false);
+            houseclose.SetActive(true);
             gm.SetActive(false);
             cleartrash.SetActive(false);
             Logic.passed_3=true;

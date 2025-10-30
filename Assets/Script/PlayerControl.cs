@@ -19,7 +19,7 @@ public class Logic : MonoBehaviour
     public static bool passed_3;
     public float originalScaleX;
     public bool movable = true;
-    float Crossing = 5f;
+    float Crossing = 4f;
     bool crossingleft = false;
     bool crossingright = false;
     public GameObject Logblock;
@@ -46,7 +46,8 @@ public class Logic : MonoBehaviour
         // Player Position Check
         if (NewBehaviourScript.slow == true)
         {
-            speed = 5;
+            speed =5;
+            Crossing = 3f;
         }
         else if (NewBehaviourScript.Final==true)
         {
@@ -57,6 +58,8 @@ public class Logic : MonoBehaviour
             speed = 10;
         }
         // speed adjust 
+        
+
         if (NewBehaviourScript.Traveling != true)
         {
             float moveHorizontal = Input.GetAxis("Horizontal");

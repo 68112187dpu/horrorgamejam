@@ -66,10 +66,14 @@ public class NewBehaviourScript : MonoBehaviour
     public GameObject couple;
     public static bool done=false;
     bool gift_zone = false;
+    public GameObject house_closed;
+    public Rigidbody2D rb;
+    
 
     // Start is called before the first frame update
     void Start()
     {
+        
         LoadScene.SetActive(true);
         StartCoroutine(Starting());
         foot_quest.SetActive(false);
@@ -153,6 +157,8 @@ public class NewBehaviourScript : MonoBehaviour
         {
             if (vil_tem == true && Input.GetKeyDown(KeyCode.J))
             {
+                rb.velocity = Vector2.zero;
+                rb.angularVelocity = 0f;
                 Traveling = true;
                 LoadScene.SetActive(true);
                 player.transform.position = new Vector2(-28f, -6.32f);
@@ -162,6 +168,8 @@ public class NewBehaviourScript : MonoBehaviour
             }
             if (tem_vil == true && Input.GetKeyDown(KeyCode.J))
             {
+                rb.velocity = Vector2.zero;
+                rb.angularVelocity = 0f;
                 Traveling = true;
                 LoadScene.SetActive(true);
                 player.transform.position = new Vector2(-10f, -6.32f);
@@ -171,6 +179,8 @@ public class NewBehaviourScript : MonoBehaviour
             }
             if (ent_tem == true && Input.GetKeyDown(KeyCode.J))
             {
+                rb.velocity = Vector2.zero;
+                rb.angularVelocity = 0f;
                 Logic.firstwarp = true;
                 Traveling = true;
                 LoadScene.SetActive(true);
@@ -181,6 +191,8 @@ public class NewBehaviourScript : MonoBehaviour
             }
             if (tem_ent == true && Input.GetKeyDown(KeyCode.J))
             {
+                rb.velocity = Vector2.zero;
+                rb.angularVelocity = 0f;
                 Traveling = true;
                 LoadScene.SetActive(true);
                 player.transform.position = new Vector2(-96, -6.32f);
@@ -190,6 +202,8 @@ public class NewBehaviourScript : MonoBehaviour
             }
             if (vil_hou == true && Input.GetKeyDown(KeyCode.J))
             {
+                rb.velocity = Vector2.zero;
+                rb.angularVelocity = 0f;
                 Traveling = true;
                 LoadScene.SetActive(true);
                 player.transform.position = new Vector2(42, -6.32f);
@@ -199,6 +213,8 @@ public class NewBehaviourScript : MonoBehaviour
             }
             if (hou_vil == true && Input.GetKeyDown(KeyCode.J))
             {
+                rb.velocity = Vector2.zero;
+                rb.angularVelocity = 0f;
                 Traveling = true;
                 LoadScene.SetActive(true);
                 player.transform.position = new Vector2(24, -6.32f);
@@ -208,6 +224,8 @@ public class NewBehaviourScript : MonoBehaviour
             }
             if (hou_vil2 == true && Input.GetKeyDown(KeyCode.J))
             {
+                rb.velocity = Vector2.zero;
+                rb.angularVelocity = 0f;
                 Traveling = true;
                 LoadScene.SetActive(true);
                 player.transform.position = new Vector2(84, -6.32f);
@@ -217,6 +235,8 @@ public class NewBehaviourScript : MonoBehaviour
             }
             if (vil2_hou == true && Input.GetKeyDown(KeyCode.J))
             {
+                rb.velocity = Vector2.zero;
+                rb.angularVelocity = 0f;
                 Traveling = true;
                 LoadScene.SetActive(true);
                 player.transform.position = new Vector2(67, -6.32f);
@@ -226,6 +246,8 @@ public class NewBehaviourScript : MonoBehaviour
             }
             if (vil2_gra == true && Input.GetKeyDown(KeyCode.J))
             {
+                rb.velocity = Vector2.zero;
+                rb.angularVelocity = 0f;
                 figher.SetActive(false);
                 firstfight = false;
                 //fighter spawn
@@ -238,6 +260,8 @@ public class NewBehaviourScript : MonoBehaviour
             }
             if (gra_vil2 == true && Input.GetKeyDown(KeyCode.J))
             {
+                rb.velocity = Vector2.zero;
+                rb.angularVelocity = 0f;
                 Traveling = true;
                 LoadScene.SetActive(true);
                 player.transform.position = new Vector2(117, -6.32f);
@@ -247,6 +271,8 @@ public class NewBehaviourScript : MonoBehaviour
             }
             if (gra_fin == true && Input.GetKeyDown(KeyCode.J))
             {
+                rb.velocity = Vector2.zero;
+                rb.angularVelocity = 0f;
                 Traveling = true;
                 LoadScene.SetActive(true);
                 player.transform.position = new Vector2(206, -6.32f);
@@ -256,6 +282,8 @@ public class NewBehaviourScript : MonoBehaviour
             }
             if (fin_gra == true && Input.GetKeyDown(KeyCode.J))
             {
+                rb.velocity = Vector2.zero;
+                rb.angularVelocity = 0f;
                 Traveling = true;
                 LoadScene.SetActive(true);
                 player.transform.position = new Vector2(182, -6.32f);
@@ -448,7 +476,8 @@ public class NewBehaviourScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Foot"))
         {
             foot_zone = false;
-        }if (biker_zone == true && feet == true && foot_accept == true && Input.GetKeyDown(KeyCode.J))
+        }
+        if (biker_zone == true && feet == true && foot_accept == true && Input.GetKeyDown(KeyCode.J))
         {
             gift_accept = true;
             slow = false;
@@ -458,6 +487,12 @@ public class NewBehaviourScript : MonoBehaviour
             biker.SetActive(false);
             foot_accept = false;
         }
+        if (collision.gameObject.CompareTag("House_Jump"))
+        {
+            house_closed.SetActive(false);
+        }
+
+
 
     }
     // Zone check

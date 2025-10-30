@@ -35,6 +35,8 @@ TagManager:
   - Lamp
   - Ground
   - Gift
+  - GhostDek
+  - House_Jump
   layers:
   - Default
   - TransparentFX

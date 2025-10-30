@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SmoothCameraFollow2D : MonoBehaviour
 {
+    public float timesee;
     public Transform target;
     public float smoothSpeed = 5f;
     private readonly Vector3 offset = new Vector3(0f, 0f, -10f);
@@ -19,55 +20,56 @@ public class SmoothCameraFollow2D : MonoBehaviour
 
     void LateUpdate()
     {
+        timesee += Time.deltaTime/3;
         if (NewBehaviourScript.Entrace == true)
         {
             minX = -131f;
             maxX = -97f;
-            minY = -5f;
-            maxY = 5;
+            minY = -2f;
+            maxY = 8;
         }
         else if (NewBehaviourScript.Temple == true)
         {
             minX = -74f;
             maxX = -34f;
-            minY = -5;
-            maxY = 5;
+            minY = -2;
+            maxY = 8;
         }
         else if (NewBehaviourScript.Village == true)
         {
             minX = -9f;
             maxX = 21f;
-            minY =-5;
-            maxY =5;
+            minY =-2;
+            maxY =8;
         }
         else if (NewBehaviourScript.House == true)
         {
             minX = 35f;
             maxX = 65f;
-            minY = -5;
-            maxY = 5;
+            minY = -2;
+            maxY = 8;
         }
         else if (NewBehaviourScript.Village_2 == true)
         {
             minX = 77f;
             maxX = 114f;
-            minY = -5;
-            maxY = 5;
+            minY = -1;
+            maxY = 8;
         }
 
         else if (NewBehaviourScript.Grave == true)
         {
             minX = 125f;
             maxX = 178f;
-            minY = -5;
-            maxY = 5;
+            minY = -2;
+            maxY = 8;
         }
         else if (NewBehaviourScript.Final == true)
         {
             minX = 197;
             maxX = 252;
-            minY = -5;
-            maxY = 5;
+            minY = -2;
+            maxY = 8;
         }
 
 
