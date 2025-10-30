@@ -42,7 +42,7 @@ public class Logic : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Vector3 playerWorldPosition = transform.position;
         float xPosition = playerWorldPosition.x;

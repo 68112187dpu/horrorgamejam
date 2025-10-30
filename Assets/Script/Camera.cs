@@ -6,27 +6,33 @@ using UnityEngine;
 public class SmoothCameraFollow2D : MonoBehaviour
 {
     public float timesee;
-    public Transform target;
-    public float smoothSpeed = 5f;
-    private readonly Vector3 offset = new Vector3(0f, 0f, -10f);
-    public GameObject player;
+    public Rigidbody2D target;
+    public float smoothSpeed = 10f;
+    //private readonly Vector3 offset = new Vector3(0f, 0f, -10f);
 
     // Define the boundaries where the camera must stop
     [Header("Boundary Limits")]
-    public float minX = -6f; // Leftmost camera position
+    public float minX = 0f; // Leftmost camera position
     public float maxX = 0f;  // Rightmost camera position
-    public float minY = -5f;  // Bottommost camera position
-    public float maxY = 5f;   // Topmost camera position
-
-    void LateUpdate()
+    public float minY = 0f;  // Bottommost camera position
+    public float maxY = 0f;   // Topmost camera position
+    private float cameraZ;
+    public float smoothTime = 0.3f;
+    private Vector3 velocity = Vector3.zero;
+    void Start()
+    {
+        // Store our camera's Z position at the start
+        cameraZ = transform.position.z;
+    }
+    void FixedUpdate()
     {
         timesee += Time.deltaTime/3;
         if (NewBehaviourScript.Entrace == true)
         {
-            minX = -131f;
-            maxX = -97f;
+            minX = -125f;
+            maxX = -103f;
             minY = -2f;
-            maxY = 8;
+            maxY = 10;
         }
         else if (NewBehaviourScript.Temple == true)
         {
@@ -71,29 +77,45 @@ public class SmoothCameraFollow2D : MonoBehaviour
             minY = -2;
             maxY = 8;
         }
+        Vector2 targetPosition = target.position;
 
+        // 2. Clamp the target's X and Y coordinates
+        float clampedX = Mathf.Clamp(targetPosition.x, minX, maxX);
+        float clampedY = Mathf.Clamp(targetPosition.y, minY, maxY);
 
+        // 3. Set the camera's new position
+        // We use the clamped X/Y and the original Z
+        //    transform.position = new Vector3(clampedX, clampedY, cameraZ);
 
-        if (target == null) return;
-
-        // 1. Calculate the raw desired position based on the player
-        Vector3 desiredPosition = target.position + offset;
-
-        // 2. Clamp the desired position to the defined boundaries
-        float clampedX = Mathf.Clamp(desiredPosition.x, minX, maxX);
-        float clampedY = Mathf.Clamp(desiredPosition.y, minY, maxY);
-
-        // Create a new clamped position with the fixed Z offset
-        Vector3 clampedPosition = new Vector3(clampedX, clampedY, offset.z);
-
-        // 3. Smoothly move the camera to the clamped position
-        Vector3 smoothedPosition = Vector3.Lerp(
-            transform.position,
-            clampedPosition, // Use the clamped position here!
-            smoothSpeed * Time.deltaTime
-        );
-
-        // 4. Apply the final smoothed position
-        transform.position = smoothedPosition;
+        Vector3 desiredPosition = new Vector3(clampedX, clampedY, cameraZ);
+        transform.position = Vector3.SmoothDamp(
+            transform.position,   // Our current position
+            desiredPosition,      // The position we want to be at
+            ref velocity,         // A variable SmoothDamp uses to track speed
+            smoothTime);          // The time to catch up
     }
+
+
+
+    //if (target == null) return;
+
+    //// 1. Calculate the raw desired position based on the player
+    //Vector3 desiredPosition = target.position + offset;
+
+    //// 2. Clamp the desired position to the defined boundaries
+    //float clampedX = Mathf.Clamp(desiredPosition.x, minX, maxX);
+    //float clampedY = Mathf.Clamp(desiredPosition.y, minY, maxY);
+
+    //// Create a new clamped position with the fixed Z offset
+    //Vector3 clampedPosition = new Vector3(clampedX, clampedY, offset.z);
+
+    //// 3. Smoothly move the camera to the clamped position
+    //Vector3 smoothedPosition = Vector3.Lerp(
+    //    transform.position,
+    //    clampedPosition, // Use the clamped position here!
+    //    smoothSpeed * Time.deltaTime
+    //);
+
+    //// 4. Apply the final smoothed position
+    //transform.position = smoothedPosition
 }

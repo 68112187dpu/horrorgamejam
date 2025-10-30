@@ -1643,7 +1643,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -112.84601, y: -0.88, z: -31.276997}
+  m_LocalPosition: {x: -103.14, y: -0.8800001, z: -31.276997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1662,13 +1662,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timesee: 0
-  target: {fileID: 911044325}
+  target: {fileID: 911044341}
   smoothSpeed: 5
-  player: {fileID: 456783038}
   minX: -6.9
   maxX: 23.5
   minY: -2
   maxY: 5
+  smoothTime: 0.3
 --- !u!1 &586343134
 GameObject:
   m_ObjectHideFlags: 0
@@ -8855,9 +8855,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1856064619}
     m_Modifications:
+    - target: {fileID: 1035128816418401938, guid: 680b43548efb8724eb0e0c3821bbd037, type: 3}
+      propertyPath: m_Size.x
+      value: 16.52481
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035128816418401938, guid: 680b43548efb8724eb0e0c3821bbd037, type: 3}
+      propertyPath: m_Offset.x
+      value: -2.5058608
+      objectReference: {fileID: 0}
     - target: {fileID: 1860848687835649554, guid: 680b43548efb8724eb0e0c3821bbd037, type: 3}
       propertyPath: m_Name
       value: Log
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603466241958496789, guid: 680b43548efb8724eb0e0c3821bbd037, type: 3}
+      propertyPath: m_Size.x
+      value: 16.11528
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603466241958496789, guid: 680b43548efb8724eb0e0c3821bbd037, type: 3}
+      propertyPath: m_Offset.x
+      value: -6.066582
       objectReference: {fileID: 0}
     - target: {fileID: 2976136896107041020, guid: 680b43548efb8724eb0e0c3821bbd037, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8898,6 +8914,22 @@ PrefabInstance:
     - target: {fileID: 2976136896107041020, guid: 680b43548efb8724eb0e0c3821bbd037, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7589963102005382320, guid: 680b43548efb8724eb0e0c3821bbd037, type: 3}
+      propertyPath: m_Size.x
+      value: 2.122199
+      objectReference: {fileID: 0}
+    - target: {fileID: 7589963102005382320, guid: 680b43548efb8724eb0e0c3821bbd037, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.56109935
+      objectReference: {fileID: 0}
+    - target: {fileID: 9211896684228091079, guid: 680b43548efb8724eb0e0c3821bbd037, type: 3}
+      propertyPath: m_Size.x
+      value: 2.0357404
+      objectReference: {fileID: 0}
+    - target: {fileID: 9211896684228091079, guid: 680b43548efb8724eb0e0c3821bbd037, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.31812283
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

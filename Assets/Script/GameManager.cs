@@ -502,14 +502,14 @@ public class NewBehaviourScript : MonoBehaviour
     // Zone check
     IEnumerator Loading()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         
         LoadScene.SetActive(false);
         Traveling=false;
     }
     IEnumerator Starting()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         LoadScene.SetActive(false);
         Traveling = false;
     }
