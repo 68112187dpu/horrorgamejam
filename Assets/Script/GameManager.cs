@@ -84,10 +84,13 @@ public class NewBehaviourScript : MonoBehaviour
     public GameObject fighterlight;
     public GameObject fighterspawn;
     public GameObject flyghost;
+    public GameObject pickghost;
 
     // Start is called before the first frame update
     void Start()
     {
+        flyghost.SetActive(false);
+        pickghost.SetActive(false);
         gift_quest.SetActive(false);
         fighterspawn.SetActive(false);
         fighterlight.SetActive(false);
@@ -146,6 +149,8 @@ public class NewBehaviourScript : MonoBehaviour
             bag_object.SetActive(false);
             slow=true;
             point_right.SetActive(true);
+            pickghost.SetActive(true);
+            StartCoroutine(pickghostback());
         }
         //get the bag
         if (gm_zone==true&&bag==true&&quest_check==true && Input.GetKeyDown(KeyCode.J))
@@ -189,6 +194,7 @@ public class NewBehaviourScript : MonoBehaviour
         //foot quest
         if (gift_quest == true && getgift == true  && Input.GetKeyDown(KeyCode.J)&&gift_zone==true)
         {
+            SceneManager.LoadScene("Ending");
             couple.SetActive(false);
             show_gift.SetActive(false);
             Traveling = true;
@@ -344,7 +350,7 @@ public class NewBehaviourScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("FlyGhost")&&biker_done==true)
         {
-            flyghost.transform.Translate(Vector2.right * 5f * Time.deltaTime);
+            flyghost.SetActive(true);
         }
         
         if (collision.gameObject.CompareTag("Light1"))
@@ -599,8 +605,13 @@ public class NewBehaviourScript : MonoBehaviour
     }
     IEnumerator LightBack1()
     {
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.15f);
         lightout1.SetActive(true);
+    }
+    IEnumerator pickghostback()
+    {
+        yield return new WaitForSeconds(0.5f);
+        pickghost.SetActive(false);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
