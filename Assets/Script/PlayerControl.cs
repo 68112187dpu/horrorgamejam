@@ -28,6 +28,7 @@ public class Logic : MonoBehaviour
     bool climbing = false;
     bool grounded = true;
     bool firstclimb=false;
+    public GameObject Logblock2;
     
 
     // Start is called before the first frame update
@@ -99,6 +100,7 @@ public class Logic : MonoBehaviour
             if (LeftCross == true && Input.GetKeyDown(KeyCode.J)&&crossingright!=true)
             {
                 Logblock.SetActive(false);
+                Logblock2.SetActive(false);
                 movable = false;
                 crossingleft = true;
                 firstcross = true; 
@@ -106,6 +108,7 @@ public class Logic : MonoBehaviour
         if (RightCross == true && Input.GetKeyDown(KeyCode.J) && crossingleft != true)
             {
                 Logblock.SetActive(false);
+                Logblock2.SetActive(false);
                 crossingright = true;
                 movable = false;
             }
@@ -208,6 +211,7 @@ public class Logic : MonoBehaviour
         {
             LeftCross = false;
             Logblock.SetActive(true);
+            Logblock2.SetActive(true);
             crossingleft = false;
             movable = true;
             
@@ -216,6 +220,7 @@ public class Logic : MonoBehaviour
         {
             RightCross = false;
             Logblock.SetActive(true);
+            Logblock2.SetActive(true);
             crossingright = false;
             movable = true;
         }

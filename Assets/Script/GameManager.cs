@@ -68,12 +68,15 @@ public class NewBehaviourScript : MonoBehaviour
     bool gift_zone = false;
     public GameObject house_closed;
     public Rigidbody2D rb;
+    public GameObject Fighter_House;
+    public GameObject biker_lamp;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        biker_lamp.SetActive(false);
+        Fighter_House.SetActive(false);
         LoadScene.SetActive(true);
         StartCoroutine(Starting());
         foot_quest.SetActive(false);
@@ -87,6 +90,7 @@ public class NewBehaviourScript : MonoBehaviour
         show_bag.SetActive(false);
         happy_gm.SetActive(false);
         gm_quest.SetActive(false);
+        gift.SetActive(false);
     }
     void bag_show()
     {
@@ -137,6 +141,7 @@ public class NewBehaviourScript : MonoBehaviour
         }
         if (biker_zone == true && feet == true && foot_accept == true && Input.GetKeyDown(KeyCode.J))
         {
+            gift.SetActive(true);
             gift_accept = true;
             slow = false;
             biker_done =true;
@@ -149,6 +154,7 @@ public class NewBehaviourScript : MonoBehaviour
         if (gift_quest == true && getgift == true  && Input.GetKeyDown(KeyCode.J)&&gift_zone==true)
         {
             couple.SetActive(false);
+            show_gift.SetActive(false);
             Traveling = true;
         }
         //done
@@ -248,6 +254,7 @@ public class NewBehaviourScript : MonoBehaviour
             {
                 rb.velocity = Vector2.zero;
                 rb.angularVelocity = 0f;
+                Fighter_House.SetActive(false);
                 figher.SetActive(false);
                 firstfight = false;
                 //fighter spawn
@@ -364,6 +371,7 @@ public class NewBehaviourScript : MonoBehaviour
         {
             if (firstfight == true)
             {
+                Fighter_House.SetActive(true);
                 figher.SetActive(true);
             }
  
@@ -479,11 +487,13 @@ public class NewBehaviourScript : MonoBehaviour
         }
         if (biker_zone == true && feet == true && foot_accept == true && Input.GetKeyDown(KeyCode.J))
         {
+            biker_lamp.SetActive(true);
             gift_accept = true;
             slow = false;
             biker_done =true;
             show_foot.SetActive(false);
             feet = false;
+            StartCoroutine(Reward());
             biker.SetActive(false);
             foot_accept = false;
         }
@@ -508,6 +518,12 @@ public class NewBehaviourScript : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         LoadScene.SetActive(false);
         Traveling = false;
+    }
+    IEnumerator Reward()
+    {
+        yield return new WaitForSeconds(2f);
+        biker.SetActive(false);
+        biker_lamp.SetActive(false);
     }
 
     //Warp wait

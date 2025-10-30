@@ -37,6 +37,7 @@ TagManager:
   - Gift
   - GhostDek
   - House_Jump
+  - LogBlock
   layers:
   - Default
   - TransparentFX
