@@ -18,13 +18,13 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene("Gameplay");
     }
-    
-}
-public class PanelController : MonoBehaviour
-{
+
+
+
+
     private GameObject panel;
 
-    void Start()
+    void Start2()
     {
         // หา Panel ด้วย Tag
         panel = GameObject.FindGameObjectWithTag("NG");
