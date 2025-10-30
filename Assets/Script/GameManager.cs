@@ -141,14 +141,16 @@ public class NewBehaviourScript : MonoBehaviour
         }
         if (biker_zone == true && feet == true && foot_accept == true && Input.GetKeyDown(KeyCode.J))
         {
+            
+            biker_lamp.SetActive(true);
             gift.SetActive(true);
             gift_accept = true;
             slow = false;
             biker_done =true;
             show_foot.SetActive(false);
             feet = false;
-            biker.SetActive(false);
             foot_accept = false;
+            StartCoroutine(Reward());
         }
         //foot quest
         if (gift_quest == true && getgift == true  && Input.GetKeyDown(KeyCode.J)&&gift_zone==true)
@@ -392,7 +394,10 @@ public class NewBehaviourScript : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("FootZone"))
         {
-            foot_quest.SetActive(true);
+            if (biker_done != true)
+            {
+                foot_quest.SetActive(true);
+            }
             foot_accept=true;
             biker_zone = true;
         }
@@ -485,18 +490,7 @@ public class NewBehaviourScript : MonoBehaviour
         {
             foot_zone = false;
         }
-        if (biker_zone == true && feet == true && foot_accept == true && Input.GetKeyDown(KeyCode.J))
-        {
-            biker_lamp.SetActive(true);
-            gift_accept = true;
-            slow = false;
-            biker_done =true;
-            show_foot.SetActive(false);
-            feet = false;
-            StartCoroutine(Reward());
-            biker.SetActive(false);
-            foot_accept = false;
-        }
+      
         if (collision.gameObject.CompareTag("House_Jump"))
         {
             house_closed.SetActive(false);
