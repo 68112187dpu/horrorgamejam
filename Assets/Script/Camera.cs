@@ -31,51 +31,51 @@ public class SmoothCameraFollow2D : MonoBehaviour
         {
             minX = -125f;
             maxX = -103f;
-            minY = -2f;
+            minY = -01f;
             maxY = 10;
         }
         else if (NewBehaviourScript.Temple == true)
         {
-            minX = -74f;
-            maxX = -34f;
-            minY = -2;
-            maxY = 8;
+            minX = -67f;
+            maxX = -41f;
+            minY = -1;
+            maxY = 10;
         }
         else if (NewBehaviourScript.Village == true)
         {
-            minX = -9f;
-            maxX = 21f;
-            minY =-2;
-            maxY =8;
+            minX = -3f;
+            maxX = 20f;
+            minY =-1;
+            maxY =10;
         }
         else if (NewBehaviourScript.House == true)
         {
-            minX = 35f;
-            maxX = 65f;
-            minY = -2;
-            maxY = 8;
+            minX = 49f;
+            maxX = 61f;
+            minY = -1;
+            maxY = 10;
         }
         else if (NewBehaviourScript.Village_2 == true)
         {
-            minX = 77f;
-            maxX = 114f;
+            minX = 94f;
+            maxX = 107f;
             minY = -1;
-            maxY = 8;
+            maxY = 10;
         }
 
         else if (NewBehaviourScript.Grave == true)
         {
-            minX = 125f;
-            maxX = 178f;
-            minY = -2;
-            maxY = 8;
+            minX = 142f;
+            maxX = 172f;
+            minY = -1;
+            maxY = 10;
         }
         else if (NewBehaviourScript.Final == true)
         {
-            minX = 197;
-            maxX = 252;
-            minY = -2;
-            maxY = 8;
+            minX = 213;
+            maxX = 247;
+            minY = -1;
+            maxY = 10;
         }
         Vector2 targetPosition = target.position;
 
