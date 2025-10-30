@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
 public class NewBehaviourScript : MonoBehaviour
@@ -72,11 +73,26 @@ public class NewBehaviourScript : MonoBehaviour
     public GameObject biker_lamp;
     public GameObject point_right;
     public GameObject point_left;
-    
+    public GameObject true_lamp;
+    public GameObject point_3;
+    public GameObject gm_close;
+    public GameObject checker;
+    public Light2D lighted;
+    public GameObject lightout;
+    public GameObject lightflip1;
+    public GameObject lightout1;
+    public GameObject fighterlight;
+    public GameObject fighterspawn;
+    public GameObject flyghost;
 
     // Start is called before the first frame update
     void Start()
     {
+        gift_quest.SetActive(false);
+        fighterspawn.SetActive(false);
+        fighterlight.SetActive(false);
+        lightflip1.SetActive(false);
+        true_lamp.SetActive(false);
         point_left.SetActive(false);
         biker_lamp.SetActive(false);
         Fighter_House.SetActive(false);
@@ -103,7 +119,14 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
- 
+        if(Village_2==true)
+        {
+            lighted.intensity = 0.5f;
+        }
+        if(House==true)
+        {
+            lighted.intensity = 0.5f;
+        }
         if (Grave == true)
         {
             Light.SetActive(false);
@@ -115,14 +138,14 @@ public class NewBehaviourScript : MonoBehaviour
             Flashlight.SetActive(false);
         }
         if ( quest_check==true&&bag_zone==true && Input.GetKeyDown(KeyCode.J))
-        {
-            
+        { 
             firstpick=true;
             guide.SetActive(false);
             quest_check = false;
             bag_show();
             bag_object.SetActive(false);
             slow=true;
+            point_right.SetActive(true);
         }
         //get the bag
         if (gm_zone==true&&bag==true&&quest_check==true && Input.GetKeyDown(KeyCode.J))
@@ -133,19 +156,26 @@ public class NewBehaviourScript : MonoBehaviour
             grandma.SetActive(false);
             happy_gm.SetActive(true);
             slow=false;
+            gm_close.SetActive(false);
         }
         //finish quest bag
         if (foot_accept == true && foot_zone == true && Input.GetKeyDown(KeyCode.J))
         {
+            guide.SetActive(false);
+            point_left.SetActive(false);
             slow = true;
             first_foot = false;
             feet = true;
             show_foot.SetActive(true);
             foot.SetActive(false);
         }
+        //get foot
         if (biker_zone == true && feet == true && foot_accept == true && Input.GetKeyDown(KeyCode.J))
         {
-            
+            gift_quest.SetActive(false);
+            foot_quest.SetActive(false);
+            point_right.SetActive(true) ;
+            true_lamp.SetActive(true);
             biker_lamp.SetActive(true);
             gift.SetActive(true);
             gift_accept = true;
@@ -258,6 +288,7 @@ public class NewBehaviourScript : MonoBehaviour
             }
             if (vil2_gra == true && Input.GetKeyDown(KeyCode.J))
             {
+                fighterspawn.SetActive(false);
                 rb.velocity = Vector2.zero;
                 rb.angularVelocity = 0f;
                 Fighter_House.SetActive(false);
@@ -311,8 +342,36 @@ public class NewBehaviourScript : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-     
+        if (collision.gameObject.CompareTag("FlyGhost")&&biker_done==true)
+        {
+            flyghost.transform.Translate(Vector2.right * 5f * Time.deltaTime);
+        }
+        
+        if (collision.gameObject.CompareTag("Light1"))
+        {
+            lightout1.SetActive(false);
+            lightflip1.SetActive(false);
+            StartCoroutine(LightBack1());
+        }
 
+        if (collision.gameObject.CompareTag("Lightout"))
+        {
+            lightout.SetActive(false);
+        }
+        if (collision.gameObject.CompareTag("BuildLight"))
+        {
+            fighterlight.SetActive(true);
+            fighterspawn.SetActive(true);
+        }
+        if (collision.gameObject.CompareTag("Point"))
+        {
+            point_left.SetActive(false);
+            checker.SetActive(false);
+        }
+        if (collision.gameObject.CompareTag("Lamp")&&biker_done==true&&getgift!=true)
+        {
+            point_right.SetActive(false);
+        }
         if (collision.gameObject.CompareTag("Quest"))
         {
             
@@ -393,11 +452,14 @@ public class NewBehaviourScript : MonoBehaviour
             }
             if (biker_done!=true)
             {
+                lightflip1.SetActive(true);
+                point_right.SetActive(false);
+                point_left.SetActive(true);
                 biker.SetActive(true);
             }
             gift_zone = true;
             gift_quest.SetActive(true);
-            foot_accept = true;
+            foot_accept = true;  
         }
         if (collision.gameObject.CompareTag("FootZone"))
         {
@@ -410,11 +472,12 @@ public class NewBehaviourScript : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Foot"))
         {
-           
+            guide.SetActive(true);
             foot_zone = true;
         }
         if (collision.gameObject.CompareTag("Gift"))
         {
+            true_lamp.SetActive(false);
             finlock.SetActive(false);
             getgift = true;
             slow=true;
@@ -497,6 +560,7 @@ public class NewBehaviourScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Foot"))
         {
             foot_zone = false;
+            guide.SetActive(false);
         }
       
         if (collision.gameObject.CompareTag("House_Jump"))
@@ -507,6 +571,8 @@ public class NewBehaviourScript : MonoBehaviour
         {
             
         }
+        
+    
 
 
 
@@ -530,6 +596,19 @@ public class NewBehaviourScript : MonoBehaviour
         yield return new WaitForSeconds(2f);
         biker.SetActive(false);
         biker_lamp.SetActive(false);
+    }
+    IEnumerator LightBack1()
+    {
+        yield return new WaitForSeconds(0.25f);
+        lightout1.SetActive(true);
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground")&&getgift==true)
+        {
+            point_right.SetActive(true);
+        }
+
     }
 
     //Warp wait

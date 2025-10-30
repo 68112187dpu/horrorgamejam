@@ -38,6 +38,11 @@ TagManager:
   - GhostDek
   - House_Jump
   - LogBlock
+  - Point
+  - Lightout
+  - Light1
+  - BuildLight
+  - FlyGhost
   layers:
   - Default
   - TransparentFX

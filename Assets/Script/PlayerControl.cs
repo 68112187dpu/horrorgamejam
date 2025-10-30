@@ -50,7 +50,7 @@ public class Logic : MonoBehaviour
         if (NewBehaviourScript.slow == true)
         {
             speed =5;
-            Crossing = 3f;
+            Crossing = 5f;
         }
         else if (NewBehaviourScript.Final==true)
         {

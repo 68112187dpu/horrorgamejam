@@ -29,37 +29,37 @@ public class SmoothCameraFollow2D : MonoBehaviour
         timesee += Time.deltaTime/3;
         if (NewBehaviourScript.Entrace == true)
         {
-            minX = -125f;
+            minX = -126f;
             maxX = -103f;
-            minY = -01f;
+            minY = -4.3f;
             maxY = 10;
         }
         else if (NewBehaviourScript.Temple == true)
         {
-            minX = -67f;
+            minX = -67.5f;
             maxX = -41f;
-            minY = -1;
+            minY = -3;
             maxY = 10;
         }
         else if (NewBehaviourScript.Village == true)
         {
             minX = -3f;
             maxX = 20f;
-            minY =-1;
+            minY =-3;
             maxY =10;
         }
         else if (NewBehaviourScript.House == true)
         {
             minX = 49f;
             maxX = 61f;
-            minY = -1;
+            minY = -3;
             maxY = 10;
         }
         else if (NewBehaviourScript.Village_2 == true)
         {
             minX = 94f;
-            maxX = 107f;
-            minY = -1;
+            maxX = 108f;
+            minY = -3;
             maxY = 10;
         }
 
@@ -67,14 +67,14 @@ public class SmoothCameraFollow2D : MonoBehaviour
         {
             minX = 142f;
             maxX = 172f;
-            minY = -1;
+            minY = -3;
             maxY = 10;
         }
         else if (NewBehaviourScript.Final == true)
         {
             minX = 213;
             maxX = 247;
-            minY = -1;
+            minY = -3;
             maxY = 10;
         }
         Vector2 targetPosition = target.position;
