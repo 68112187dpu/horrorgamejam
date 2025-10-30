@@ -29,11 +29,13 @@ public class Logic : MonoBehaviour
     bool grounded = true;
     bool firstclimb=false;
     public GameObject Logblock2;
+    public Animator animator;
     
 
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         Guide.SetActive(false);
         originalScaleX = Mathf.Abs(transform.localScale.x);
         passed_3 = false;
@@ -63,12 +65,13 @@ public class Logic : MonoBehaviour
 
         if (NewBehaviourScript.Traveling != true)
         {
+            animator.SetFloat("Speed", Mathf.Abs(Input.GetAxis("Horizontal")));
             float moveHorizontal = Input.GetAxis("Horizontal");
             if (movable == true)
             {
                
-                Vector2 movement = new Vector2(moveHorizontal, 0f);
-
+                Vector2 movement = new Vector2(moveHorizontal*speed, 0f);
+                movement.Normalize();
                 
                 if (moveHorizontal > 0)
                 {
@@ -91,7 +94,7 @@ public class Logic : MonoBehaviour
                 }
                 else
                 {
-                    rb.velocity = movement * speed;
+                    rb.velocity = movement;
                 }
             }
 
