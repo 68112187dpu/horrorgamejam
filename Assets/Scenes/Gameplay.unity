@@ -9047,6 +9047,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 364962023183597830, guid: edcdfc121ff46c445b5407792ed4ec1f, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 364962023183597830, guid: edcdfc121ff46c445b5407792ed4ec1f, type: 3}
       propertyPath: m_LinearDrag
       value: 0.1
       objectReference: {fileID: 0}
@@ -9056,7 +9060,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 364962023183597830, guid: edcdfc121ff46c445b5407792ed4ec1f, type: 3}
       propertyPath: m_GravityScale
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1834855837361303966, guid: edcdfc121ff46c445b5407792ed4ec1f, type: 3}
       propertyPath: grandma

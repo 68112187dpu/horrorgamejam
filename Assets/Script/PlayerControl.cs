@@ -70,7 +70,7 @@ public class Logic : MonoBehaviour
             if (movable == true)
             {
                
-                Vector2 movement = new Vector2(moveHorizontal*speed, 0f);
+                Vector3 movement = new Vector3(moveHorizontal, 0f,0f);
                 movement.Normalize();
                 
                 if (moveHorizontal > 0)
@@ -94,7 +94,7 @@ public class Logic : MonoBehaviour
                 }
                 else
                 {
-                    rb.velocity = movement;
+                    rb.velocity = movement*speed;
                 }
             }
 
