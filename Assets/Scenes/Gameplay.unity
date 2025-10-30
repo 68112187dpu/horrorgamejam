@@ -968,7 +968,7 @@ Animator:
   m_GameObject: {fileID: 382594253}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 35cd0027f1844784c9b468d8004bc37b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9904e849ea391944faf4a5432d7db038, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4633,6 +4633,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1206232366}
   - component: {fileID: 1206232365}
+  - component: {fileID: 1206232367}
   m_Layer: 0
   m_Name: Marker
   m_TagString: Untagged
@@ -4707,6 +4708,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1206232367
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206232364}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 24e7c6198cbe72d4e9c56748c84221a1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1212205233 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 872027780228222202, guid: 224b8c8060a172040b838863fd6bd7a9, type: 3}

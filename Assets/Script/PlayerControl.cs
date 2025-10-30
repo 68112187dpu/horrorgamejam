@@ -143,6 +143,7 @@ public class Logic : MonoBehaviour
         }
         if(climbing==true)
         {
+            animator.SetBool("Climb", true);
             player.transform.Translate(Vector2.up * Crossing * Time.deltaTime);
             rb.gravityScale = 0f;
         }
@@ -249,6 +250,7 @@ public class Logic : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
+            animator.SetBool("Climb", false);
             movable = true;
             grounded = true;
         }
