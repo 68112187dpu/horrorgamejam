@@ -42,7 +42,7 @@ public class Logic : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         Vector3 playerWorldPosition = transform.position;
         float xPosition = playerWorldPosition.x;
@@ -100,7 +100,7 @@ public class Logic : MonoBehaviour
 
            
             //Player movement
-            if (LeftCross == true && Input.GetKeyDown(KeyCode.J)&&crossingright!=true)
+        if (LeftCross == true && Input.GetKeyDown(KeyCode.J)&&crossingright!=true)
             {
                 Logblock.SetActive(false);
                 Logblock2.SetActive(false);
@@ -119,11 +119,13 @@ public class Logic : MonoBehaviour
         }
         if (crossingleft == true&&LeftCross == true)
         {
+            animator.SetBool("Jump",true);
             rb.velocity = Vector2.zero;
             player.transform.Translate(Vector2.right * Crossing * Time.deltaTime);
         }
         if (crossingright == true&& RightCross == true)
         {
+            animator.SetBool("Jump", true);
             rb.velocity = Vector2.zero;
             player.transform.Translate(Vector2.left * Crossing * Time.deltaTime);
         }
@@ -207,11 +209,12 @@ public class Logic : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("QTE2"))
         {
-            
-            
+
+           
         }
         if (collision.gameObject.CompareTag("LeftRight"))
         {
+            animator.SetBool("Jump", false);
             LeftCross = false;
             Logblock.SetActive(true);
             Logblock2.SetActive(true);
@@ -221,6 +224,7 @@ public class Logic : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("RightLeft"))
         {
+            animator.SetBool("Jump", false);
             RightCross = false;
             Logblock.SetActive(true);
             Logblock2.SetActive(true);
