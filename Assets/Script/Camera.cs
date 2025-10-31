@@ -19,13 +19,36 @@ public class SmoothCameraFollow2D : MonoBehaviour
     private float cameraZ;
     public float smoothTime = 0.3f;
     private Vector3 velocity = Vector3.zero;
+    public GameObject music1;
+    public GameObject musictown;
+    public GameObject musicsilence;
     void Start()
     {
         // Store our camera's Z position at the start
         cameraZ = transform.position.z;
+        musicsilence.SetActive(false);
+        musictown.SetActive(false);
     }
     void FixedUpdate()
     {
+        if(NewBehaviourScript.Temple==true)
+        {
+            music1.SetActive(true);
+            musicsilence.SetActive(false);
+            musictown.SetActive(false);
+        }
+        if (NewBehaviourScript.Village == true|| NewBehaviourScript.Village_2==true)
+        {
+            music1.SetActive(false);
+            musicsilence.SetActive(false);
+            musictown.SetActive(true);
+        }
+        if (NewBehaviourScript.Grave==true)
+        {
+            music1.SetActive(false);
+            musicsilence.SetActive(true);
+            musictown.SetActive(false);
+        }
         timesee += Time.deltaTime/3;
         if (NewBehaviourScript.Entrace == true)
         {

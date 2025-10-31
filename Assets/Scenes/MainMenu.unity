@@ -321,6 +321,7 @@ GameObject:
   - component: {fileID: 125919352}
   - component: {fileID: 125919351}
   - component: {fileID: 125919354}
+  - component: {fileID: 125919355}
   m_Layer: 0
   m_Name: Left
   m_TagString: RightLeft
@@ -474,6 +475,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1392227275}
+--- !u!210 &125919355
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125919349}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
 --- !u!1 &182687462
 GameObject:
   m_ObjectHideFlags: 0
@@ -1973,6 +1986,7 @@ GameObject:
   - component: {fileID: 610885922}
   - component: {fileID: 610885921}
   - component: {fileID: 610885924}
+  - component: {fileID: 610885925}
   m_Layer: 0
   m_Name: Right
   m_TagString: LeftRight
@@ -2126,6 +2140,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1392227275}
+--- !u!210 &610885925
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610885919}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
 --- !u!1 &659132153
 GameObject:
   m_ObjectHideFlags: 0
@@ -2137,6 +2163,7 @@ GameObject:
   - component: {fileID: 659132154}
   - component: {fileID: 659132156}
   - component: {fileID: 659132155}
+  - component: {fileID: 659132157}
   m_Layer: 0
   m_Name: CatAni
   m_TagString: Untagged
@@ -2232,6 +2259,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!210 &659132157
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659132153}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
 --- !u!1 &711189511
 GameObject:
   m_ObjectHideFlags: 0
@@ -2417,6 +2456,7 @@ GameObject:
   m_Component:
   - component: {fileID: 780001407}
   - component: {fileID: 780001406}
+  - component: {fileID: 780001408}
   m_Layer: 0
   m_Name: Biker
   m_TagString: Untagged
@@ -2496,6 +2536,18 @@ Transform:
   - {fileID: 921420926}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!210 &780001408
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780001405}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
 --- !u!1 &821048805
 GameObject:
   m_ObjectHideFlags: 0
@@ -2507,6 +2559,7 @@ GameObject:
   - component: {fileID: 821048806}
   - component: {fileID: 821048808}
   - component: {fileID: 821048809}
+  - component: {fileID: 821048810}
   m_Layer: 0
   m_Name: CatAni
   m_TagString: Untagged
@@ -2569,7 +2622,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: af2ea5d2c1bc8d341904709a4bd3bec1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2602,6 +2655,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!210 &821048810
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821048805}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
 --- !u!1 &876174187
 GameObject:
   m_ObjectHideFlags: 0
@@ -2615,6 +2680,7 @@ GameObject:
   - component: {fileID: 876174191}
   - component: {fileID: 876174190}
   - component: {fileID: 876174189}
+  - component: {fileID: 876174193}
   m_Layer: 0
   m_Name: Left
   m_TagString: RightLeft
@@ -2768,6 +2834,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!210 &876174193
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876174187}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
 --- !u!1 &921420925
 GameObject:
   m_ObjectHideFlags: 0
@@ -3051,6 +3129,7 @@ GameObject:
   - component: {fileID: 1132811508}
   - component: {fileID: 1132811510}
   - component: {fileID: 1132811511}
+  - component: {fileID: 1132811512}
   m_Layer: 0
   m_Name: Right
   m_TagString: LeftRight
@@ -3204,6 +3283,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1392227275}
+--- !u!210 &1132811512
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132811506}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
 --- !u!1 &1227779951
 GameObject:
   m_ObjectHideFlags: 0
@@ -3715,6 +3806,7 @@ GameObject:
   - component: {fileID: 1359133368}
   - component: {fileID: 1359133370}
   - component: {fileID: 1359133369}
+  - component: {fileID: 1359133371}
   m_Layer: 0
   m_Name: CatAni
   m_TagString: Untagged
@@ -3810,6 +3902,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!210 &1359133371
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359133367}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
 --- !u!1 &1376752732
 GameObject:
   m_ObjectHideFlags: 0
@@ -4224,6 +4328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1456826360}
   - component: {fileID: 1456826359}
+  - component: {fileID: 1456826361}
   m_Layer: 0
   m_Name: Couple
   m_TagString: Untagged
@@ -4303,6 +4408,18 @@ Transform:
   - {fileID: 1227779952}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!210 &1456826361
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456826358}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
 --- !u!1 &1471661770
 GameObject:
   m_ObjectHideFlags: 0
@@ -4644,6 +4761,7 @@ GameObject:
   - component: {fileID: 1531789292}
   - component: {fileID: 1531789291}
   - component: {fileID: 1531789290}
+  - component: {fileID: 1531789294}
   m_Layer: 0
   m_Name: Right
   m_TagString: LeftRight
@@ -4797,6 +4915,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!210 &1531789294
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531789288}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
 --- !u!1 &1543277038
 GameObject:
   m_ObjectHideFlags: 0
@@ -4899,6 +5029,7 @@ GameObject:
   - component: {fileID: 1584084842}
   - component: {fileID: 1584084841}
   - component: {fileID: 1584084840}
+  - component: {fileID: 1584084844}
   m_Layer: 0
   m_Name: Left
   m_TagString: RightLeft
@@ -5052,6 +5183,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!210 &1584084844
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584084838}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
 --- !u!1 &1683333307
 GameObject:
   m_ObjectHideFlags: 0
@@ -5868,6 +6011,7 @@ GameObject:
   - component: {fileID: 2026046935}
   - component: {fileID: 2026046937}
   - component: {fileID: 2026046936}
+  - component: {fileID: 2026046938}
   m_Layer: 0
   m_Name: CatAni
   m_TagString: Untagged
@@ -5963,6 +6107,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!210 &2026046938
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026046934}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
 --- !u!1 &2067519651
 GameObject:
   m_ObjectHideFlags: 0
@@ -6312,6 +6468,7 @@ GameObject:
   - component: {fileID: 2107663667}
   - component: {fileID: 2107663666}
   - component: {fileID: 2107663665}
+  - component: {fileID: 2107663669}
   m_Layer: 0
   m_Name: Right
   m_TagString: LeftRight
@@ -6465,6 +6622,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!210 &2107663669
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107663663}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
 --- !u!1 &2109563786
 GameObject:
   m_ObjectHideFlags: 0
@@ -6476,6 +6645,7 @@ GameObject:
   - component: {fileID: 2109563787}
   - component: {fileID: 2109563789}
   - component: {fileID: 2109563788}
+  - component: {fileID: 2109563790}
   m_Layer: 0
   m_Name: CatAni
   m_TagString: Untagged
@@ -6571,6 +6741,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!210 &2109563790
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109563786}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

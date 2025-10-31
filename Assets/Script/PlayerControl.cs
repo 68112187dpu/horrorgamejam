@@ -30,11 +30,13 @@ public class Logic : MonoBehaviour
     bool firstclimb=false;
     public GameObject Logblock2;
     public Animator animator;
+    public GameObject sound;
     
 
     // Start is called before the first frame update
     void Start()
     {
+        sound.SetActive(false);
         animator = GetComponent<Animator>();
         Guide.SetActive(false);
         originalScaleX = Mathf.Abs(transform.localScale.x);
@@ -95,7 +97,16 @@ public class Logic : MonoBehaviour
                 else
                 {
                     rb.velocity = movement*speed;
+                    if (rb.velocity != Vector2.zero)
+                    {
+                        sound.SetActive(true);
+                    }
+                    else
+                    {
+                        sound.SetActive(false);
+                    }
                 }
+                
             }
 
            
