@@ -1,6 +1,6 @@
-using System;
+
 using System.Collections;
-using TMPro;
+
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
@@ -197,16 +197,35 @@ public class NewBehaviourScript : MonoBehaviour
             foot_accept = false;
             fightsound.SetActive(false);
             StartCoroutine(Reward());
+            
         }
         //foot quest
         if (gift_quest == true && getgift == true  && Input.GetKeyDown(KeyCode.J)&&gift_zone==true)
         {
+
+            Traveling = true;
+            Temple = false;
+            Village = false;
+            Grave = false;
+            Final = false;
+            House = false;
+            Village_2 = false;
+            Entrace = true;
+            quest_check = false;
             SceneManager.LoadScene("Ending");
             couple.SetActive(false);
             show_gift.SetActive(false);
             Traveling = true;
-        }
-        //done
+            slow = false;
+            gift_accept = false;
+            firstpick = false;
+            getgift = false;
+            done = false;
+            Logic.passed_3 = false;
+            Logic.firstwarp = false;
+            GhostDeklogic.dekjump = false;
+}
+        //doneall
 
         if (Traveling != true)
         {

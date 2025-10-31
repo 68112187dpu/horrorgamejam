@@ -1375,8 +1375,8 @@ Transform:
   - {fileID: 1618942898}
   - {fileID: 509718852}
   - {fileID: 1969541409}
-  - {fileID: 224392491}
   - {fileID: 488054119}
+  - {fileID: 224392491}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &169596124
@@ -1677,7 +1677,7 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -1.1097835, y: 3.1645162}
+    - - {x: -1.1097103, y: 3.1646755}
       - {x: -1.1177025, y: 3.164581}
       - {x: -2.160616, y: -0.09191981}
       - {x: -0.5877852, y: -0.80901706}
@@ -11724,7 +11724,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 9c9b6363faef7fc498e3f2516a66b0aa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
