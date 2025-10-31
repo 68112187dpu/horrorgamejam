@@ -22,8 +22,10 @@ public class SmoothCameraFollow2D : MonoBehaviour
     public GameObject music1;
     public GameObject musictown;
     public GameObject musicsilence;
+  
     void Start()
     {
+        
         // Store our camera's Z position at the start
         cameraZ = transform.position.z;
         musicsilence.SetActive(false);
@@ -52,6 +54,7 @@ public class SmoothCameraFollow2D : MonoBehaviour
         timesee += Time.deltaTime/3;
         if (NewBehaviourScript.Entrace == true)
         {
+            
             minX = -126f;
             maxX = -103f;
             minY = -4.3f;
@@ -59,6 +62,7 @@ public class SmoothCameraFollow2D : MonoBehaviour
         }
         else if (NewBehaviourScript.Temple == true)
         {
+            
             minX = -67.5f;
             maxX = -41f;
             minY = -3;
@@ -66,6 +70,7 @@ public class SmoothCameraFollow2D : MonoBehaviour
         }
         else if (NewBehaviourScript.Village == true)
         {
+           
             minX = -3f;
             maxX = 20f;
             minY =-3;
@@ -73,6 +78,7 @@ public class SmoothCameraFollow2D : MonoBehaviour
         }
         else if (NewBehaviourScript.House == true)
         {
+            
             minX = 49f;
             maxX = 61f;
             minY = -3;

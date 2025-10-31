@@ -85,10 +85,12 @@ public class NewBehaviourScript : MonoBehaviour
     public GameObject fighterspawn;
     public GameObject flyghost;
     public GameObject pickghost;
+    public GameObject fightsound;
 
     // Start is called before the first frame update
     void Start()
     {
+        fightsound.SetActive(false);
         flyghost.SetActive(false);
         pickghost.SetActive(false);
         gift_quest.SetActive(false);
@@ -122,6 +124,10 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Entrace==true&&foot_accept==true)
+        {
+            fightsound.SetActive(true);
+        }
         if(Village_2==true)
         {
             lighted.intensity = 0.5f;
@@ -155,7 +161,7 @@ public class NewBehaviourScript : MonoBehaviour
         //get the bag
         if (gm_zone==true&&bag==true&&quest_check==true && Input.GetKeyDown(KeyCode.J))
         {
-           
+            guide.SetActive(false);
             show_bag.SetActive(false);
             bag=false;
             grandma.SetActive(false);
@@ -189,6 +195,7 @@ public class NewBehaviourScript : MonoBehaviour
             show_foot.SetActive(false);
             feet = false;
             foot_accept = false;
+            fightsound.SetActive(false);
             StartCoroutine(Reward());
         }
         //foot quest
@@ -380,7 +387,11 @@ public class NewBehaviourScript : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Quest"))
         {
-            
+            if (bag==true)
+            {
+                guide.SetActive(true);
+            }
+
             gm_quest.SetActive(true);
             quest_check = true;
             gm_zone = true;

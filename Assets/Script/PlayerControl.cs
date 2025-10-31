@@ -27,7 +27,7 @@ public class Logic : MonoBehaviour
     bool climb = false;
     bool climbing = false;
     bool grounded = true;
-    bool firstclimb=false;
+    //bool firstclimb=false;
     public GameObject Logblock2;
     public Animator animator;
     public GameObject sound;
@@ -149,7 +149,7 @@ public class Logic : MonoBehaviour
             climbing = true;
             grounded = false;
             Guide.SetActive(false);
-            firstclimb = true;
+            //firstclimb = true;
 
         }
         if(climbing==true)
@@ -198,12 +198,12 @@ public class Logic : MonoBehaviour
                 Guide.SetActive(true);
             }
         }
-        if (collision.gameObject.CompareTag("Lamp")&& NewBehaviourScript.gift_accept == true )
+        if (collision.gameObject.CompareTag("Lamp")&& NewBehaviourScript.gift_accept == true&&NewBehaviourScript.getgift!=true &&grounded==true)
         {
-            if (firstclimb!=true)
-            {
-                Guide.SetActive(true);
-            }
+            
+            
+            Guide.SetActive(true);
+            
             climb = true;
         }
 
